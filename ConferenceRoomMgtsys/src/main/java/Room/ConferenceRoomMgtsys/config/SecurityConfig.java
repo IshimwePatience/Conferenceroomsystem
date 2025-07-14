@@ -136,7 +136,7 @@ public class SecurityConfig {
                 "http://localhost:5174", // Vite dev server
                 "http://localhost:3000", // React dev server (backup)
                 "http://localhost:8080", // Alternative frontend port
-                "https://your-production-domain.com" // Add your production domain
+                "https://conferenceroomsystem.vercel.app" // Vercel frontend
         ));
 
         // Allow all headers
