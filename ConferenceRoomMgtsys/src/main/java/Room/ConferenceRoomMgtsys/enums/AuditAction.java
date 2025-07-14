@@ -1,0 +1,22 @@
+package Room.ConferenceRoomMgtsys.enums;
+
+public enum AuditAction {
+    CREATE,
+    UPDATE,
+    DELETE,
+    APPROVE,
+    REJECT,
+    LOGIN,
+    LOGOUT,
+    PASSWORD_CHANGE,
+    ORGANIZATION_CREATE,
+    ORGANIZATION_UPDATE,
+    ORGANIZATION_DELETE,
+    USER_CREATE,
+    USER_UPDATE,
+    USER_DELETE,
+    ADMIN_CREATE,
+    ADMIN_DELETE,
+    ADMIN_APPROVE,
+    ADMIN_REJECT
+}
