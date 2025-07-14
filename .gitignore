@@ -1,1 +1,3 @@
-ConferenceRoomMgtsys/src/main/resources/application.properties 
+# Ignore secret files
+passwords.txt
+.env 

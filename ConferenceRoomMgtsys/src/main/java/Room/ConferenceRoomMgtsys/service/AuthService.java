@@ -52,10 +52,10 @@ public class AuthService {
     @Value("${app.oauth.google.client-secret:}")
     private String googleClientSecret;
 
-    @Value("${app.oauth.google.redirect-uri:http://localhost:5173/auth/callback}")
+    @Value("${app.oauth.google.redirect-uri:${app.frontend.url}/auth/callback}")
     private String googleRedirectUri;
 
-    @Value("${app.frontend.url:http://localhost:5173}")
+    @Value("${app.frontend.url:}")
     private String frontendUrl;
 
     private final RestTemplate restTemplate = new RestTemplate();

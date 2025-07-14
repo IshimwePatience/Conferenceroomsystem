@@ -19,7 +19,7 @@ import jakarta.annotation.PostConstruct;
 @Configuration
 public class FileUploadConfig implements WebMvcConfigurer {
 
-    @Value("${file.upload-dir}")
+    @Value("${file.upload-dir:/tmp/uploads}")
     private String uploadDir;
 
     @PostConstruct

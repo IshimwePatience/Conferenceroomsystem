@@ -130,14 +130,20 @@ public class SecurityConfig {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
 
-        // Allow your frontend origins
-        configuration.setAllowedOrigins(Arrays.asList(
-                "http://localhost:5173", // Vite dev server
-                "http://localhost:5174", // Vite dev server
-                "http://localhost:3000", // React dev server (backup)
-                "http://localhost:8080", // Alternative frontend port
-                "https://conferenceroomsystem.vercel.app" // Vercel frontend
-        ));
+        // Use environment variable for allowed origins in production
+        String allowedOriginsEnv = System.getenv("ALLOWED_ORIGINS");
+        List<String> allowedOrigins;
+        if (allowedOriginsEnv != null && !allowedOriginsEnv.isBlank()) {
+            allowedOrigins = Arrays.asList(allowedOriginsEnv.split(","));
+        } else {
+            // Default to localhost for development
+            allowedOrigins = Arrays.asList(
+                    "http://localhost:5173",
+                    "http://localhost:5174",
+                    "http://localhost:3000",
+                    "http://localhost:8080");
+        }
+        configuration.setAllowedOrigins(allowedOrigins);
 
         // Allow all headers
         configuration.setAllowedHeaders(List.of("*"));
