@@ -294,13 +294,18 @@ public class RoomService {
                                                                                                           // "uploads/"
                                                                                                           // prefix
                                 if (Files.exists(imagePath)) {
-                                    Files.delete(imagePath);
-                                    logger.info("Deleted old image file: {}", imagePath);
+                                    try {
+                                        Files.delete(imagePath);
+                                        logger.info("Deleted old image file: {}", imagePath);
+                                    } catch (Exception e) {
+                                        logger.warn("Failed to delete old image file {}: {}", imagePath,
+                                                e.getMessage());
+                                    }
                                 } else {
                                     logger.warn("Old image file not found for deletion: {}", imagePath);
                                 }
                             } catch (Exception e) {
-                                logger.warn("Failed to delete old image file {}: {}", imageUrl, e.getMessage());
+                                logger.warn("Exception while handling old image file {}: {}", imageUrl, e.getMessage());
                             }
                         }
                     }
@@ -347,11 +352,16 @@ public class RoomService {
                             try {
                                 Path imagePath = Paths.get(baseUploadDir).resolve(imageUrl.substring(8));
                                 if (Files.exists(imagePath)) {
-                                    Files.delete(imagePath);
-                                    logger.info("Deleted old image file (no new images provided): {}", imagePath);
+                                    try {
+                                        Files.delete(imagePath);
+                                        logger.info("Deleted old image file (no new images provided): {}", imagePath);
+                                    } catch (Exception e) {
+                                        logger.warn("Failed to delete old image file {}: {}", imagePath,
+                                                e.getMessage());
+                                    }
                                 }
                             } catch (Exception e) {
-                                logger.warn("Failed to delete old image file {}: {}", imageUrl, e.getMessage());
+                                logger.warn("Exception while handling old image file {}: {}", imageUrl, e.getMessage());
                             }
                         }
                     }
