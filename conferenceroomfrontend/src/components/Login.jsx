@@ -33,7 +33,7 @@ const Login = ({ setIsLoggedIn, setUserRole }) => {
     }, [setIsLoggedIn, setUserRole]);
 
     // Handles successful login by storing the token and redirecting
-    const handleSuccessfulLogin = (data) => {
+    const handleSuccessfulLogin = (data, isGoogle = false) => {
         console.log('Login response data:', data); // Debug log
         localStorage.setItem('token', data.accessToken);
         api.defaults.headers.common['Authorization'] = `Bearer ${data.accessToken}`;
@@ -49,24 +49,19 @@ const Login = ({ setIsLoggedIn, setUserRole }) => {
             setUserRole(userRole);
             setIsLoggedIn(true);
             
-            // Navigate based on role
-            switch (userRole) {
-                case 'SYSTEM_ADMIN':
-                    navigate('/dashboard');
-                    break;
-                case 'ADMIN':
-                    navigate('/dashboard');
-                    break;
-                case 'USER':
-                    navigate('/dashboard');
-                    break;
-                default:
-                    console.error('Unknown role:', userRole);
-                    navigate('/dashboard');
+            // Always redirect to /dashboard, but force reload for Google login
+            if (isGoogle) {
+                window.location.href = '/dashboard';
+            } else {
+                navigate('/dashboard');
             }
         } catch (error) {
             console.error('Error decoding token after login:', error);
-            navigate('/dashboard');
+            if (isGoogle) {
+                window.location.href = '/dashboard';
+            } else {
+                navigate('/dashboard');
+            }
         }
     };
 
@@ -241,7 +236,7 @@ const Login = ({ setIsLoggedIn, setUserRole }) => {
                 
                 const data = response.data;
                 if (data.success && data.token) {
-                    handleSuccessfulLogin({ accessToken: data.token });
+                    handleSuccessfulLogin({ accessToken: data.token }, true);
                 } else {
                     setError(data.message || 'Google login failed on the server.');
                 }
