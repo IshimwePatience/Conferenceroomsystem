@@ -431,9 +431,9 @@ const SystemAdminDashboard = () => {
             if (url.includes('placeholder') || url.includes('acmecorp.com')) {
                 return url;
             }
-            return `http://localhost:8080/api/images/proxy?url=${encodeURIComponent(url)}`;
+            return `${import.meta.env.VITE_API_URL}/api/images/proxy?url=${encodeURIComponent(url)}`;
         } else if (url.startsWith('/')) {
-            return `http://localhost:8080${url}`;
+            return `${import.meta.env.VITE_API_URL}${url}`;
         }
         return 'https://via.placeholder.com/50';
     };
