@@ -137,12 +137,13 @@ public class SecurityConfig {
         if (allowedOriginsEnv != null && !allowedOriginsEnv.isBlank()) {
             allowedOrigins = Arrays.asList(allowedOriginsEnv.split(","));
         } else {
-            // Default to localhost for development
+            // Default to localhost and Vercel for development/production
             allowedOrigins = Arrays.asList(
                     "http://localhost:5173",
                     "http://localhost:5174",
                     "http://localhost:3000",
-                    "http://localhost:8080");
+                    "http://localhost:8080",
+                    "https://conferenceroomsystem.vercel.app");
         }
         configuration.setAllowedOrigins(allowedOrigins);
 
