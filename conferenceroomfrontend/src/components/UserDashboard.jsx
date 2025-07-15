@@ -134,7 +134,7 @@ const UserDashboard = ({ setIsLoggedIn }) => {
         }
         // Otherwise, assume it's a relative path and construct the full URL
         const path = url.startsWith('/') ? url.substring(1) : url;
-        return `http://localhost:8080/${path}`;
+        return `${import.meta.env.VITE_API_URL}/${path}`;
     };
 
     const handleImageError = (e) => {

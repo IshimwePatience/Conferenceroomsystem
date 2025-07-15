@@ -69,7 +69,7 @@ const Organization = () => {
 
     const getImageUrl = (imagePath) => {
         if (imagePath && typeof imagePath === 'string') {
-            return `http://localhost:8080/${imagePath}`;
+            return `${import.meta.env.VITE_API_URL}/${imagePath.startsWith('/') ? imagePath.substring(1) : imagePath}`;
         }
         return 'https://via.placeholder.com/100x100/cccccc/ffffff?text=No+Logo';
     };

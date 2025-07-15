@@ -219,11 +219,11 @@ const Room = ({ userRole }) => {
 
   const getImageUrl = (imagePath) => {
     if (imagePath && typeof imagePath === 'string') {
-        return `http://localhost:8080/${imagePath}`;
+        return `${import.meta.env.VITE_API_URL}/${imagePath.startsWith('/') ? imagePath.substring(1) : imagePath}`;
     }
     // Return a data URL for placeholder if no valid path is provided
     return 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjM2I0MjU5Ii8+Cjx0ZXh0IHg9IjEwMCIgeT0iMTAwIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTYiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkeT0iLjNlbSI+Tm8gSW1hZ2U8L3RleHQ+Cjwvc3ZnPgo=';
-  };
+};
 
   const handleImageError = (e) => {
     // Use a data URL for the fallback image to avoid infinite loops
