@@ -31,7 +31,7 @@ import Room.ConferenceRoomMgtsys.service.AvailabilityService;
 
 @RestController
 @RequestMapping(value = "/availability")
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = { "http://localhost:5173", "https://conferenceroomsystem.vercel.app" })
 public class AvailabilityController {
 
     @Autowired
@@ -43,14 +43,15 @@ public class AvailabilityController {
      */
     @PostMapping(value = "/create", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> createAvailability(@RequestBody AvailabilityCreateDto createDto,
-                                              @AuthenticationPrincipal User admin) {
+            @AuthenticationPrincipal User admin) {
         try {
             AvailabilityResponseDto availability = availabilityService.createAvailability(createDto, admin);
             return new ResponseEntity<>(availability, HttpStatus.CREATED);
         } catch (IllegalArgumentException e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         } catch (Exception e) {
-            return new ResponseEntity<>("Failed to create availability: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>("Failed to create availability: " + e.getMessage(),
+                    HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
@@ -60,15 +61,17 @@ public class AvailabilityController {
      */
     @PutMapping(value = "/update/{availabilityId}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> updateAvailability(@PathVariable UUID availabilityId,
-                                              @RequestBody AvailabilityUpdateDto updateDto,
-                                              @AuthenticationPrincipal User admin) {
+            @RequestBody AvailabilityUpdateDto updateDto,
+            @AuthenticationPrincipal User admin) {
         try {
-            AvailabilityResponseDto availability = availabilityService.updateAvailability(availabilityId, updateDto, admin);
+            AvailabilityResponseDto availability = availabilityService.updateAvailability(availabilityId, updateDto,
+                    admin);
             return new ResponseEntity<>(availability, HttpStatus.OK);
         } catch (IllegalArgumentException e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         } catch (Exception e) {
-            return new ResponseEntity<>("Failed to update availability: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>("Failed to update availability: " + e.getMessage(),
+                    HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
@@ -78,14 +81,15 @@ public class AvailabilityController {
      */
     @DeleteMapping(value = "/delete/{availabilityId}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> deleteAvailability(@PathVariable UUID availabilityId,
-                                              @AuthenticationPrincipal User admin) {
+            @AuthenticationPrincipal User admin) {
         try {
             availabilityService.deleteAvailability(availabilityId, admin);
             return new ResponseEntity<>("Availability deleted successfully", HttpStatus.OK);
         } catch (IllegalArgumentException e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         } catch (Exception e) {
-            return new ResponseEntity<>("Failed to delete availability: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>("Failed to delete availability: " + e.getMessage(),
+                    HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
@@ -95,33 +99,36 @@ public class AvailabilityController {
      */
     @GetMapping(value = "/room/{roomId}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> getRoomAvailability(@PathVariable UUID roomId,
-                                               Pageable pageable) {
+            Pageable pageable) {
         try {
             Page<AvailabilityResponseDto> availability = availabilityService.getRoomAvailability(roomId, pageable);
             return new ResponseEntity<>(availability, HttpStatus.OK);
         } catch (IllegalArgumentException e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
         } catch (Exception e) {
-            return new ResponseEntity<>("Failed to fetch room availability: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>("Failed to fetch room availability: " + e.getMessage(),
+                    HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
     /**
      * Get available days for a room within a time range
-     * GET /availability/room/{roomId}/available-days?dayOfWeek=MONDAY&startTime=09:00&endTime=17:00
+     * GET
+     * /availability/room/{roomId}/available-days?dayOfWeek=MONDAY&startTime=09:00&endTime=17:00
      */
     @GetMapping(value = "/room/{roomId}/available-days", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> getAvailableDays(@PathVariable UUID roomId,
-                                            @RequestParam DayOfWeek dayOfWeek,
-                                            @RequestParam LocalTime startTime,
-                                            @RequestParam LocalTime endTime) {
+            @RequestParam DayOfWeek dayOfWeek,
+            @RequestParam LocalTime startTime,
+            @RequestParam LocalTime endTime) {
         try {
             List<DayOfWeek> availableDays = availabilityService.getAvailableDays(roomId, dayOfWeek, startTime, endTime);
             return new ResponseEntity<>(availableDays, HttpStatus.OK);
         } catch (IllegalArgumentException e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
         } catch (Exception e) {
-            return new ResponseEntity<>("Failed to fetch available days: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>("Failed to fetch available days: " + e.getMessage(),
+                    HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 }

@@ -35,7 +35,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/user")
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = { "http://localhost:5173", "https://conferenceroomsystem.vercel.app" })
 public class UserController {
 
     @Autowired

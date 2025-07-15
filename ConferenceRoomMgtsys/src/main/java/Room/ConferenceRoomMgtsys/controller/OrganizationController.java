@@ -18,7 +18,7 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/organization")
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = { "http://localhost:5173", "https://conferenceroomsystem.vercel.app" })
 public class OrganizationController {
 
     private static final Logger logger = LoggerFactory.getLogger(OrganizationController.class);

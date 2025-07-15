@@ -34,7 +34,7 @@ import Room.ConferenceRoomMgtsys.service.RoomService;
 
 @RestController
 @RequestMapping(value = "/room")
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = { "http://localhost:5173", "https://conferenceroomsystem.vercel.app" })
 public class RoomController {
 
     @Autowired

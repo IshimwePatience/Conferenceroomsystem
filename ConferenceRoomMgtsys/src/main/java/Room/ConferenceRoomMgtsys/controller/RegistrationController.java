@@ -14,18 +14,18 @@ import java.util.regex.Pattern;
 
 @RestController
 @RequestMapping("/user")
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = { "http://localhost:5173", "https://conferenceroomsystem.vercel.app" })
 public class RegistrationController {
 
     private final UserService userService;
-
 
     public RegistrationController(UserService userService) {
         this.userService = userService;
     }
 
     @PostMapping("/register")
-    public ResponseEntity<Map<String, String>> registerUser(@RequestBody UserRegistrationDto registrationDto, @AuthenticationPrincipal User currentUser) {
+    public ResponseEntity<Map<String, String>> registerUser(@RequestBody UserRegistrationDto registrationDto,
+            @AuthenticationPrincipal User currentUser) {
         Map<String, String> response = new HashMap<>();
 
         if (isInvalid(registrationDto)) {

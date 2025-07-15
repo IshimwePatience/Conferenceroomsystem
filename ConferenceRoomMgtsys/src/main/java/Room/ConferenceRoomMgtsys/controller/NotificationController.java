@@ -23,7 +23,7 @@ import Room.ConferenceRoomMgtsys.service.NotificationService;
 
 @RestController
 @RequestMapping(value = "/notification")
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = { "http://localhost:5173", "https://conferenceroomsystem.vercel.app" })
 public class NotificationController {
 
     @Autowired
@@ -70,7 +70,8 @@ public class NotificationController {
             int unreadCount = notificationService.getUnreadCount(user);
             return new ResponseEntity<>(new UnreadCountResponse(unreadCount), HttpStatus.OK);
         } catch (Exception e) {
-            return new ResponseEntity<>("Failed to fetch unread count: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>("Failed to fetch unread count: " + e.getMessage(),
+                    HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
@@ -80,14 +81,15 @@ public class NotificationController {
      */
     @PutMapping(value = "/{notificationId}/mark-read", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> markAsRead(@PathVariable UUID notificationId,
-                                      @AuthenticationPrincipal User user) {
+            @AuthenticationPrincipal User user) {
         try {
             notificationService.markAsRead(notificationId);
             return new ResponseEntity<>("Notification marked as read", HttpStatus.OK);
         } catch (RuntimeException e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
         } catch (Exception e) {
-            return new ResponseEntity<>("Failed to mark notification as read: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>("Failed to mark notification as read: " + e.getMessage(),
+                    HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 

@@ -12,7 +12,7 @@ import Room.ConferenceRoomMgtsys.service.DashboardService;
 
 @RestController
 @RequestMapping("/dashboard")
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = { "http://localhost:5173", "https://conferenceroomsystem.vercel.app" })
 public class DashboardController {
 
     @Autowired
