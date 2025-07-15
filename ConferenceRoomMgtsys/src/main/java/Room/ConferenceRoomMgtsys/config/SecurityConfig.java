@@ -50,6 +50,7 @@ public class SecurityConfig {
                         // === PUBLIC ENDPOINTS ===
                         // Authentication & Registration
                         .requestMatchers("/auth/**", "/user/register", "/user/register-system-admin").permitAll()
+                        .requestMatchers("/", "/index.html").permitAll()
 
                         // System admin registration status endpoint (public GET)
                         .requestMatchers(HttpMethod.GET, "/api/system-config/system-admin-registration-enabled")
