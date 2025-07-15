@@ -266,6 +266,10 @@ public class RoomService {
     @Transactional
     public RoomResponseDto updateRoom(UUID roomId, RoomCreateDto updateDto, Organization organization,
             List<MultipartFile> newImages) {
+        if (organization == null) {
+            logger.error("Organization is null in updateRoom for roomId: {}", roomId);
+            throw new IllegalArgumentException("Organization must not be null when updating a room.");
+        }
         Room room = roomRepository.findById(roomId)
                 .orElseThrow(() -> new IllegalArgumentException("Room not found with ID: " + roomId));
 

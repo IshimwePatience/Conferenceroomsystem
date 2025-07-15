@@ -90,6 +90,10 @@ public class RoomController {
             @RequestParam(value = "images", required = false) List<MultipartFile> images,
             @AuthenticationPrincipal User user) {
         try {
+            if (user.getOrganization() == null) {
+                return new ResponseEntity<>("User is not associated with any organization. Cannot update room.",
+                        HttpStatus.BAD_REQUEST);
+            }
             // Log the incoming request for debugging
             System.out.println("Updating room with ID: " + roomId);
             System.out.println("Name: " + name);
