@@ -31,6 +31,7 @@ import Room.ConferenceRoomMgtsys.dto.user.UserStatusRequest;
 import Room.ConferenceRoomMgtsys.dto.user.UserApprovalRequest;
 
 import java.util.UUID;
+import java.util.List;
 
 @RestController
 @RequestMapping(value = "/user")
@@ -104,7 +105,11 @@ public class UserController {
     @PreAuthorize("hasRole('ADMIN') or hasRole('SYSTEM_ADMIN')")
     public ResponseEntity<?> getPendingUsers(@AuthenticationPrincipal User currentAdmin) {
         try {
-            return ResponseEntity.ok(userService.getPendingUsers(currentAdmin));
+            List<User> pendingUsers = userService.getPendingUsers(currentAdmin);
+            List<UserResponseDto> dtos = pendingUsers.stream()
+                    .map(UserResponseDto::fromUser)
+                    .toList();
+            return ResponseEntity.ok(dtos);
         } catch (RuntimeException e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         } catch (Exception e) {
