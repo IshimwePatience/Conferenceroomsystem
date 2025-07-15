@@ -772,8 +772,8 @@ const SystemAdminDashboard = () => {
                                 </div>
                             </div>
 
-                            {/* Compact Pending User Approvals */}
-                            {/* <div className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-4 mb-4 border border-gray-700">
+                            {/* Pending User Approvals */}
+                            <div className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-4 mb-4 border border-gray-700">
                                 <h2 className="text-lg font-bold text-white mb-3">Pending User Approvals</h2>
                                 <div className="overflow-x-auto">
                                     <table className="min-w-full">
@@ -793,7 +793,7 @@ const SystemAdminDashboard = () => {
                                                         <td className="px-3 py-2 whitespace-nowrap text-white text-sm">{user.firstName} {user.lastName}</td>
                                                         <td className="px-3 py-2 whitespace-nowrap text-gray-300 text-sm">{user.email}</td>
                                                         <td className="px-3 py-2 whitespace-nowrap text-gray-300 text-sm">{user.role}</td>
-                                                        <td className="px-3 py-2 whitespace-nowrap text-gray-300 text-sm">{user.organizationName || 'N/A'}</td>
+                                                        <td className="px-3 py-2 whitespace-nowrap text-gray-300 text-sm">{user.organization?.name || user.organizationName || 'N/A'}</td>
                                                         <td className="px-3 py-2 whitespace-nowrap space-x-1">
                                                             <button 
                                                                 onClick={() => handleApproval(user.id, 'APPROVED')} 
@@ -818,7 +818,7 @@ const SystemAdminDashboard = () => {
                                         </tbody>
                                     </table>
                                 </div>
-                            </div> */}
+                            </div>
 
                                                    </>
                     )}
