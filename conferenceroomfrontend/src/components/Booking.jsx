@@ -106,6 +106,18 @@ const Booking = () => {
             setFormError('All fields are required.');
             return;
         }
+        // New validation: prevent booking in the past or with invalid time range
+        const now = new Date();
+        const start = new Date(startTime);
+        const end = new Date(endTime);
+        if (start < now) {
+            setFormError('Start time cannot be in the past.');
+            return;
+        }
+        if (end <= start) {
+            setFormError('End time must be after start time.');
+            return;
+        }
         // Debug: log a booking object to inspect its structure
         if (bookings && bookings.length > 0) {
             console.log('Sample booking object:', bookings[0]);
