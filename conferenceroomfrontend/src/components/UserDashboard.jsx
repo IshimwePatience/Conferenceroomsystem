@@ -297,7 +297,7 @@ const UserDashboard = ({ setIsLoggedIn }) => {
                 <section className="mb-12 relative min-h-[420px]">
                     {/* Background image and overlay */}
                     <div
-                        className="absolute inset-0  z-0 min-h-[420px] bg-fixed bg-cover py-6"
+                        className="absolute inset-0  z-0 min-h-[420px] bg-fixed bg-cover"
                         style={{ backgroundImage: `url(${Meeting})` }}
                     >
                         <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-blue-900/80 min-h-[420px]"></div>
