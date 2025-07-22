@@ -300,7 +300,7 @@ const UserDashboard = ({ setIsLoggedIn }) => {
                         className="absolute inset-0  z-0 min-h-[420px] bg-fixed bg-cover"
                         style={{ backgroundImage: `url(${Meeting})` }}
                     >
-                        <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-blue-900/80 min-h-[420px]"></div>
+                        <div className="absolute inset-0  min-h-[420px]"></div>
                     </div>
                     {/* Content above background */}
                     <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 items-center min-h-[420px]">
