@@ -235,7 +235,7 @@ const SystemAdminRegister = () => {
     }
 
     return (
-        <div className="w-full">
+        <div className="container">
             {currentStep === 1 && renderStep1()}
             {currentStep === 2 && renderStep2()}
             {currentStep === 3 && renderStep3()}

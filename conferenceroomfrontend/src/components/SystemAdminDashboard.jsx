@@ -535,7 +535,7 @@ const SystemAdminDashboard = () => {
     }));
 
     return (
-        <div className="min-h-screen rounded-xl">
+        <div className="container">
             {/* Compact Global Search Bar */}
             <div className="sticky mt-0 backdrop-blur-sm border-b border-gray-700 px-2 sm:px-3 py-1">
                 <div className="max-w-7xl mx-auto">

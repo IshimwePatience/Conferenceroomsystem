@@ -271,254 +271,252 @@ const Room = ({ userRole }) => {
   }
 
   return (
-    <div className="min-h-screen  ">
-      <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold bg-gray-500 bg-clip-text text-transparent mb-2">
-            {userRole === 'ADMIN' ? 'Organization Rooms' : userRole === 'SYSTEM_ADMIN' ? 'All Rooms' : 'All Rooms'}
-          </h1>
-          <p className="text-gray-500">
-            {userRole === 'ADMIN' 
-              ? 'Manage and control your organization\'s conference rooms' 
-              : userRole === 'SYSTEM_ADMIN' 
-                ? 'Browse and manage all conference rooms across all organizations'
-                : 'Browse and book available conference rooms'
-            }
-          </p>
-          <div className="mt-4 w-24 h-1 bg-gradient-to-r from-green-400 to-blue-400 rounded-full"></div>
+    <div className="container">
+      {/* Header */}
+      <div className="mb-8">
+        <h1 className="text-3xl font-bold bg-gray-500 bg-clip-text text-transparent mb-2">
+          {userRole === 'ADMIN' ? 'Organization Rooms' : userRole === 'SYSTEM_ADMIN' ? 'All Rooms' : 'All Rooms'}
+        </h1>
+        <p className="text-gray-500">
+          {userRole === 'ADMIN' 
+            ? 'Manage and control your organization\'s conference rooms' 
+            : userRole === 'SYSTEM_ADMIN' 
+              ? 'Browse and manage all conference rooms across all organizations'
+              : 'Browse and book available conference rooms'
+          }
+        </p>
+        <div className="mt-4 w-24 h-1 bg-gradient-to-r from-green-400 to-blue-400 rounded-full"></div>
+      </div>
+
+      {/* Alert Messages */}
+      {error && (
+        <div className="mb-6 p-4 bg-red-500/20 border border-red-500/50 rounded-lg text-red-200">
+          {error}
         </div>
-
-        {/* Alert Messages */}
-        {error && (
-          <div className="mb-6 p-4 bg-red-500/20 border border-red-500/50 rounded-lg text-red-200">
-            {error}
-          </div>
-        )}
-        {success && (
-          <div className="mb-6 p-4 bg-green-500/20 border border-green-500/50 rounded-lg text-green-200">
-            {success}
-          </div>
-        )}
-
-        {/* Search and Add Room */}
-        <div className="flex justify-between items-center mb-6">
-          <div className="relative">
-            <input
-              type="text"
-              placeholder="Search rooms..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="pl-10 pr-4 py-2 bg-gray-800/50 border border-gray-700 rounded-lg text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
-            />
-            <FaSearch className="absolute left-3 top-3 text-gray-400" />
-          </div>
-          {(userRole === 'ADMIN' || userRole === 'SYSTEM_ADMIN') && (
-            <button
-              onClick={handleAddRoomClick}
-              className="flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-green-500 to-blue-500 text-white rounded-lg hover:from-green-600 hover:to-blue-600 transition-all duration-200"
-            >
-              <FaPlus />
-              <span>Add Room</span>
-            </button>
-          )}
+      )}
+      {success && (
+        <div className="mb-6 p-4 bg-green-500/20 border border-green-500/50 rounded-lg text-green-200">
+          {success}
         </div>
+      )}
 
-        {/* Masonry Grid for Rooms */}
-        <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5 lg:gap-8'>
-          {rooms?.map(room => (
-            <div key={room.id} className="bg-gray-800/50 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-700 hover:border-green-500/50 transition-all duration-200 break-inside-avoid">
-              <div className="relative h-48">
-                <img
-                  src={getImageUrl(getRoomImage(room))}
-                  alt={room.name}
-                  onError={handleImageError}
-                  className="w-full h-full object-cover"
-                />
-                {(userRole === 'ADMIN' || userRole === 'SYSTEM_ADMIN') && (
-                  <div className="absolute top-2 right-2 flex space-x-2">
-                    <button
-                      onClick={() => handleEditRoomClick(room)}
-                      className="p-2 bg-blue-500/80 text-white rounded-lg hover:bg-blue-600/80 transition-colors"
-                    >
-                      <FaEdit />
-                    </button>
-                    <button
-                      onClick={() => handleDeleteRoom(room.id)}
-                      className="p-2 bg-red-500/80 text-white rounded-lg hover:bg-red-600/80 transition-colors"
-                    >
-                      <FaTrash />
-                    </button>
-                  </div>
-                )}
-              </div>
-              <div className="p-4">
-                <h3 className="text-lg sm:text-xl font-bold text-white mb-2">{room.name}</h3>
-                <div className="space-y-2 text-gray-300 text-sm">
-                  {userRole === 'SYSTEM_ADMIN' && room.organizationName && (
-                    <p><span className="text-blue-400 text-sm">Organization:</span> {room.organizationName}</p>
-                  )}
-                  <p><span className="text-green-400 text-sm">Capacity:</span> {room.capacity} people</p>
-                  <p><span className="text-green-400 text-sm">Location:</span> {room.location}</p>
-                  <p><span className="text-green-400 text-sm">Floor:</span> {room.floor}</p>
-                  {room.amenities && (
-                    <p><span className="text-green-400 text-sm">Amenities:</span> {room.amenities}</p>
-                  )}
-                  {room.equipment && (
-                    <p><span className="text-green-400 text-sm">Equipment:</span> {room.equipment}</p>
-                  )}
-                </div>
-                {userRole === 'USER' && (
-                  <button
-                    onClick={() => handleBookRoom(room.id)}
-                    className="mt-4 w-full px-3 py-2 bg-gradient-to-r from-green-500 to-blue-500 text-white rounded-lg text-sm hover:from-green-600 hover:to-blue-600 transition-all duration-200"
-                  >
-                    Book Room
-                  </button>
-                )}
-              </div>
-            </div>
-          ))}
+      {/* Search and Add Room */}
+      <div className="flex justify-between items-center mb-6">
+        <div className="relative">
+          <input
+            type="text"
+            placeholder="Search rooms..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="pl-10 pr-4 py-2 bg-gray-800/50 border border-gray-700 rounded-lg text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+          />
+          <FaSearch className="absolute left-3 top-3 text-gray-400" />
         </div>
-
-        {/* Pagination Controls */}
-        <div className="flex justify-center items-center mt-8 space-x-4">
+        {(userRole === 'ADMIN' || userRole === 'SYSTEM_ADMIN') && (
           <button
-            onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
-            disabled={currentPage === 1}
-            className={`px-4 py-2 rounded-lg font-semibold ${currentPage === 1 ? 'bg-gray-600 text-gray-300 cursor-not-allowed' : 'bg-gradient-to-r from-green-500 to-blue-500 text-white hover:from-green-600 hover:to-blue-600'}`}
+            onClick={handleAddRoomClick}
+            className="flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-green-500 to-blue-500 text-white rounded-lg hover:from-green-600 hover:to-blue-600 transition-all duration-200"
           >
-            Previous
+            <FaPlus />
+            <span>Add Room</span>
           </button>
-          <span className="text-gray-500 font-medium">Page {currentPage} of {totalPages}</span>
-          <button
-            onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
-            disabled={currentPage === totalPages}
-            className={`px-4 py-2 rounded-lg font-semibold ${currentPage === totalPages ? 'bg-gray-600 text-gray-300 cursor-not-allowed' : 'bg-gradient-to-r from-green-500 to-blue-500 text-white hover:from-green-600 hover:to-blue-600'}`}
-          >
-            Next
-          </button>
-        </div>
-
-        {/* Add/Edit Room Modal */}
-        {isModalOpen && (
-          <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center p-2 sm:p-4 z-50">
-            <div className="bg-gray-800 rounded-xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
-              <div className="p-6">
-                <h2 className="text-2xl font-bold text-white mb-6">
-                  {editingRoom ? 'Edit Room' : 'Add New Room'}
-                </h2>
-                <form onSubmit={handleRoomSubmit} className="space-y-4">
-                  <div>
-                    <label className="block text-gray-300 mb-2">Room Name</label>
-                    <input
-                      type="text"
-                      name="name"
-                      value={newRoom.name}
-                      onChange={handleRoomInputChange}
-                      className="w-full px-4 py-2 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-gray-300 mb-2">Capacity</label>
-                    <input
-                      type="number"
-                      name="capacity"
-                      value={newRoom.capacity}
-                      onChange={handleRoomInputChange}
-                      className="w-full px-4 py-2 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-gray-300 mb-2">Location</label>
-                    <input
-                      type="text"
-                      name="location"
-                      value={newRoom.location}
-                      onChange={handleRoomInputChange}
-                      className="w-full px-4 py-2 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-gray-300 mb-2">Floor</label>
-                    <input
-                      type="text"
-                      name="floor"
-                      value={newRoom.floor}
-                      onChange={handleRoomInputChange}
-                      className="w-full px-4 py-2 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-gray-300 mb-2">Description</label>
-                    <textarea
-                      name="description"
-                      value={newRoom.description}
-                      onChange={handleRoomInputChange}
-                      className="w-full px-4 py-2 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                      rows="3"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-gray-300 mb-2">Amenities</label>
-                    <input
-                      type="text"
-                      name="amenities"
-                      value={newRoom.amenities}
-                      onChange={handleRoomInputChange}
-                      className="w-full px-4 py-2 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-gray-300 mb-2">Equipment</label>
-                    <input
-                      type="text"
-                      name="equipment"
-                      value={newRoom.equipment}
-                      onChange={handleRoomInputChange}
-                      className="w-full px-4 py-2 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-gray-300 mb-2">Room Images</label>
-                    <input
-                      type="file"
-                      multiple
-                      accept="image/*"
-                      onChange={handleImageFileChange}
-                      className="w-full px-4 py-2 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                    />
-                  </div>
-                  {error && (
-                    <div className="p-3 bg-red-500/20 border border-red-500/50 rounded-lg text-red-200 text-sm">
-                      {error}
-                    </div>
-                  )}
-                  <div className="flex justify-end space-x-4 mt-6">
-                    <button
-                      type="button"
-                      onClick={handleModalClose}
-                      className="px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"
-                    >
-                      Cancel
-                    </button>
-                    <button
-                      type="submit"
-                      className="px-4 py-2 bg-gradient-to-r from-green-500 to-blue-500 text-white rounded-lg hover:from-green-600 hover:to-blue-600 transition-all duration-200"
-                    >
-                      {editingRoom ? 'Update Room' : 'Create Room'}
-                    </button>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
         )}
       </div>
+
+      {/* Masonry Grid for Rooms */}
+      <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5 lg:gap-8'>
+        {rooms?.map(room => (
+          <div key={room.id} className="bg-gray-800/50 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-700 hover:border-green-500/50 transition-all duration-200 break-inside-avoid">
+            <div className="relative h-48">
+              <img
+                src={getImageUrl(getRoomImage(room))}
+                alt={room.name}
+                onError={handleImageError}
+                className="w-full h-full object-cover"
+              />
+              {(userRole === 'ADMIN' || userRole === 'SYSTEM_ADMIN') && (
+                <div className="absolute top-2 right-2 flex space-x-2">
+                  <button
+                    onClick={() => handleEditRoomClick(room)}
+                    className="p-2 bg-blue-500/80 text-white rounded-lg hover:bg-blue-600/80 transition-colors"
+                  >
+                    <FaEdit />
+                  </button>
+                  <button
+                    onClick={() => handleDeleteRoom(room.id)}
+                    className="p-2 bg-red-500/80 text-white rounded-lg hover:bg-red-600/80 transition-colors"
+                  >
+                    <FaTrash />
+                  </button>
+                </div>
+              )}
+            </div>
+            <div className="p-4">
+              <h3 className="text-lg sm:text-xl font-bold text-white mb-2">{room.name}</h3>
+              <div className="space-y-2 text-gray-300 text-sm">
+                {userRole === 'SYSTEM_ADMIN' && room.organizationName && (
+                  <p><span className="text-blue-400 text-sm">Organization:</span> {room.organizationName}</p>
+                )}
+                <p><span className="text-green-400 text-sm">Capacity:</span> {room.capacity} people</p>
+                <p><span className="text-green-400 text-sm">Location:</span> {room.location}</p>
+                <p><span className="text-green-400 text-sm">Floor:</span> {room.floor}</p>
+                {room.amenities && (
+                  <p><span className="text-green-400 text-sm">Amenities:</span> {room.amenities}</p>
+                )}
+                {room.equipment && (
+                  <p><span className="text-green-400 text-sm">Equipment:</span> {room.equipment}</p>
+                )}
+              </div>
+              {userRole === 'USER' && (
+                <button
+                  onClick={() => handleBookRoom(room.id)}
+                  className="mt-4 w-full px-3 py-2 bg-gradient-to-r from-green-500 to-blue-500 text-white rounded-lg text-sm hover:from-green-600 hover:to-blue-600 transition-all duration-200"
+                >
+                  Book Room
+                </button>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Pagination Controls */}
+      <div className="flex justify-center items-center mt-8 space-x-4">
+        <button
+          onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
+          disabled={currentPage === 1}
+          className={`px-4 py-2 rounded-lg font-semibold ${currentPage === 1 ? 'bg-gray-600 text-gray-300 cursor-not-allowed' : 'bg-gradient-to-r from-green-500 to-blue-500 text-white hover:from-green-600 hover:to-blue-600'}`}
+        >
+          Previous
+        </button>
+        <span className="text-gray-500 font-medium">Page {currentPage} of {totalPages}</span>
+        <button
+          onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
+          disabled={currentPage === totalPages}
+          className={`px-4 py-2 rounded-lg font-semibold ${currentPage === totalPages ? 'bg-gray-600 text-gray-300 cursor-not-allowed' : 'bg-gradient-to-r from-green-500 to-blue-500 text-white hover:from-green-600 hover:to-blue-600'}`}
+        >
+          Next
+        </button>
+      </div>
+
+      {/* Add/Edit Room Modal */}
+      {isModalOpen && (
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center p-2 sm:p-4 z-50">
+          <div className="bg-gray-800 rounded-xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
+            <div className="p-6">
+              <h2 className="text-2xl font-bold text-white mb-6">
+                {editingRoom ? 'Edit Room' : 'Add New Room'}
+              </h2>
+              <form onSubmit={handleRoomSubmit} className="space-y-4">
+                <div>
+                  <label className="block text-gray-300 mb-2">Room Name</label>
+                  <input
+                    type="text"
+                    name="name"
+                    value={newRoom.name}
+                    onChange={handleRoomInputChange}
+                    className="w-full px-4 py-2 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                    required
+                  />
+                </div>
+                <div>
+                  <label className="block text-gray-300 mb-2">Capacity</label>
+                  <input
+                    type="number"
+                    name="capacity"
+                    value={newRoom.capacity}
+                    onChange={handleRoomInputChange}
+                    className="w-full px-4 py-2 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                    required
+                  />
+                </div>
+                <div>
+                  <label className="block text-gray-300 mb-2">Location</label>
+                  <input
+                    type="text"
+                    name="location"
+                    value={newRoom.location}
+                    onChange={handleRoomInputChange}
+                    className="w-full px-4 py-2 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                    required
+                  />
+                </div>
+                <div>
+                  <label className="block text-gray-300 mb-2">Floor</label>
+                  <input
+                    type="text"
+                    name="floor"
+                    value={newRoom.floor}
+                    onChange={handleRoomInputChange}
+                    className="w-full px-4 py-2 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                    required
+                  />
+                </div>
+                <div>
+                  <label className="block text-gray-300 mb-2">Description</label>
+                  <textarea
+                    name="description"
+                    value={newRoom.description}
+                    onChange={handleRoomInputChange}
+                    className="w-full px-4 py-2 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                    rows="3"
+                  />
+                </div>
+                <div>
+                  <label className="block text-gray-300 mb-2">Amenities</label>
+                  <input
+                    type="text"
+                    name="amenities"
+                    value={newRoom.amenities}
+                    onChange={handleRoomInputChange}
+                    className="w-full px-4 py-2 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                  />
+                </div>
+                <div>
+                  <label className="block text-gray-300 mb-2">Equipment</label>
+                  <input
+                    type="text"
+                    name="equipment"
+                    value={newRoom.equipment}
+                    onChange={handleRoomInputChange}
+                    className="w-full px-4 py-2 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                  />
+                </div>
+                <div>
+                  <label className="block text-gray-300 mb-2">Room Images</label>
+                  <input
+                    type="file"
+                    multiple
+                    accept="image/*"
+                    onChange={handleImageFileChange}
+                    className="w-full px-4 py-2 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                  />
+                </div>
+                {error && (
+                  <div className="p-3 bg-red-500/20 border border-red-500/50 rounded-lg text-red-200 text-sm">
+                    {error}
+                  </div>
+                )}
+                <div className="flex justify-end space-x-4 mt-6">
+                  <button
+                    type="button"
+                    onClick={handleModalClose}
+                    className="px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    type="submit"
+                    className="px-4 py-2 bg-gradient-to-r from-green-500 to-blue-500 text-white rounded-lg hover:from-green-600 hover:to-blue-600 transition-all duration-200"
+                  >
+                    {editingRoom ? 'Update Room' : 'Create Room'}
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

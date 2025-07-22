@@ -253,7 +253,7 @@ const Booking = () => {
 
     if (queryError) {
         return (
-            <div className="min-h-screen bg-gray-900 flex items-center justify-center p-6">
+            <div className="container min-h-screen bg-gray-900 flex items-center justify-center p-6">
                 <div className="bg-red-500/20 border border-red-500/50 rounded-lg p-4 text-red-300 max-w-md">
                     <p className="font-medium text-center">{queryError.message}</p>
                 </div>
@@ -264,7 +264,7 @@ const Booking = () => {
     // If no roomId, show all bookings in table format
     if (!roomId) {
         return (
-            <div className="min-h-screen  text-gray-500 p-6">
+            <div className="container min-h-screen text-gray-500 p-6">
                 <div className="max-w-7xl mx-auto">
                     {/* Header */}
                     <div className="mb-6">
@@ -430,7 +430,7 @@ const Booking = () => {
     // If roomId exists, show booking form
     if (!room) {
         return (
-            <div className="min-h-screen bg-gray-900 flex items-center justify-center">
+            <div className="container min-h-screen bg-gray-900 flex items-center justify-center">
                 <div className="text-center">
                     <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-500 mx-auto"></div>
                     <p className="mt-3 text-gray-400">Loading room details...</p>
@@ -440,7 +440,7 @@ const Booking = () => {
     }
 
     return (
-        <div className="min-h-screen  text-gray-500 p-2 sm:p-6">
+        <div className="container min-h-screen text-gray-500 p-2 sm:p-6">
             <div className="max-w-lg mx-auto w-full">
                 {/* Header */}
                 <div className="mb-6 text-center">

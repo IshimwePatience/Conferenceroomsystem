@@ -91,7 +91,7 @@ const Approval = () => {
 
     return (
         <div className="min-h-screen  text-gray-200 p-6">
-            <div className="max-w-4xl mx-auto">
+            <div className="container">
                 {/* Header Section */}
                 <div className="mb-6 text-center">
                     <h2 className="text-3xl font-bold text-white mb-2">

@@ -160,7 +160,7 @@ const Organization = () => {
 
     return (
         <div className="min-h-screen p-6">
-            <div className="max-w-7xl mx-auto">
+            <div className="container">
                 <div className="flex justify-between items-center mb-6">
                     <div>
                         <h1 className="text-3xl font-bold text-white">Organizations</h1>

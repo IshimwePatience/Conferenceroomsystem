@@ -14,7 +14,7 @@ const Navbar = ({ setIsLoggedIn }) => {
     };
 
     return (
-        <div className="flex flex-col w-64 h-full px-4 py-8 bg-white border-r">
+        <div className="container">
             <h2 className="text-3xl font-semibold text-gray-800">ConferenceRoom</h2>
             <div className="flex flex-col justify-between flex-1 mt-6">
                 <nav>

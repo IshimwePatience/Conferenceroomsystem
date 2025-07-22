@@ -53,7 +53,7 @@ const OrgAdminNavbar = ({ setIsLoggedIn, activePath }) => {
     };
 
     return (
-        <>
+        <div className="container">
             {/* Sidebar for desktop/tablet */}
             <div className="hidden md:flex flex-col w-66 h-full bg-black ">
                 {/* Header */}
@@ -206,7 +206,7 @@ const OrgAdminNavbar = ({ setIsLoggedIn, activePath }) => {
                     <div className="flex-1" onClick={() => setMobileMenuOpen(false)}></div>
                 </div>
             )}
-        </>
+        </div>
     );
 };
 

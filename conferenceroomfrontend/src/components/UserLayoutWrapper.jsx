@@ -185,7 +185,9 @@ const UserLayoutWrapper = ({ children, setIsLoggedIn }) => {
 
             {/* Main Content with Top Padding */}
             <main className="max-w-7xl mx-auto px-6 py-8 pt-24">
-                {children}
+                <div className="container">
+                    {children}
+                </div>
             </main>
         </div>
     );

@@ -142,7 +142,7 @@ const ManageUsers = () => {
 
     return (
         <div className="min-h-screen  text-gray-200 p-6">
-            <div className="max-w-7xl mx-auto">
+            <div className="container">
                 <div className="mb-6">
                     <h1 className="text-3xl font-bold text-white">Manage Users</h1>
                     <p className="text-gray-400">Control user roles, permissions, and account status.</p>

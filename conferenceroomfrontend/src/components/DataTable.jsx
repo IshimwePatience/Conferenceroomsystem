@@ -33,7 +33,7 @@ const DataTable = ({
     };
 
     return (
-        <div className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-8 mb-8 border border-gray-700">
+        <div className="container">
             {title && <h2 className="text-2xl font-bold text-white mb-4">{title}</h2>}
             
             {/* Search Bar */}

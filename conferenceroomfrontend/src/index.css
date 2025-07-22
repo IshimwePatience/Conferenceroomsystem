@@ -12,6 +12,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+
+
 /* Hide scrollbars for all elements */
 *::-webkit-scrollbar {
   display: none;

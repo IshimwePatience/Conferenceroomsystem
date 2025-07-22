@@ -252,136 +252,138 @@ const Register = () => {
     );
 
     return (
-        <div className="min-h-screen w-full flex flex-col lg:flex-row relative overflow-hidden bg-black">
-            {/* Background Space Elements */}
-            <div className="absolute inset-0 overflow-hidden">
-                <div className="absolute -top-10 -left-10 w-96 h-96 bg-gradient-to-br from-cyan-400/30 to-blue-600/30 rounded-full blur-3xl"></div>
-                <div className="absolute top-1/3 -right-16 w-80 h-80 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-full blur-2xl"></div>
-                <div className="absolute bottom-20 left-1/4 w-32 h-32 bg-gradient-to-br from-orange-400/40 to-red-500/40 rounded-full blur-xl"></div>
-                <div className="absolute top-1/4 left-1/3 w-2 h-2 bg-white rounded-full animate-pulse"></div>
-                <div className="absolute top-1/2 left-1/4 w-1 h-1 bg-cyan-300 rounded-full animate-pulse"></div>
-                <div className="absolute top-3/4 right-1/3 w-1.5 h-1.5 bg-purple-300 rounded-full animate-pulse"></div>
-                <div className="absolute top-1/6 right-1/4 w-1 h-1 bg-pink-300 rounded-full animate-pulse"></div>
-                <div className="absolute bottom-1/3 left-1/6 w-2 h-2 bg-blue-300 rounded-full animate-pulse"></div>
-                <div className="absolute top-20 right-20 w-20 h-0.5 bg-gradient-to-r from-transparent via-white to-transparent transform rotate-45 animate-pulse"></div>
-                <div className="absolute bottom-40 left-40 w-16 h-0.5 bg-gradient-to-r from-transparent via-cyan-300 to-transparent transform -rotate-12 animate-pulse"></div>
-            </div>
+        <div className="container">
+            <div className="min-h-screen w-full flex flex-col lg:flex-row relative overflow-hidden bg-black">
+                {/* Background Space Elements */}
+                <div className="absolute inset-0 overflow-hidden">
+                    <div className="absolute -top-10 -left-10 w-96 h-96 bg-gradient-to-br from-cyan-400/30 to-blue-600/30 rounded-full blur-3xl"></div>
+                    <div className="absolute top-1/3 -right-16 w-80 h-80 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-full blur-2xl"></div>
+                    <div className="absolute bottom-20 left-1/4 w-32 h-32 bg-gradient-to-br from-orange-400/40 to-red-500/40 rounded-full blur-xl"></div>
+                    <div className="absolute top-1/4 left-1/3 w-2 h-2 bg-white rounded-full animate-pulse"></div>
+                    <div className="absolute top-1/2 left-1/4 w-1 h-1 bg-cyan-300 rounded-full animate-pulse"></div>
+                    <div className="absolute top-3/4 right-1/3 w-1.5 h-1.5 bg-purple-300 rounded-full animate-pulse"></div>
+                    <div className="absolute top-1/6 right-1/4 w-1 h-1 bg-pink-300 rounded-full animate-pulse"></div>
+                    <div className="absolute bottom-1/3 left-1/6 w-2 h-2 bg-blue-300 rounded-full animate-pulse"></div>
+                    <div className="absolute top-20 right-20 w-20 h-0.5 bg-gradient-to-r from-transparent via-white to-transparent transform rotate-45 animate-pulse"></div>
+                    <div className="absolute bottom-40 left-40 w-16 h-0.5 bg-gradient-to-r from-transparent via-cyan-300 to-transparent transform -rotate-12 animate-pulse"></div>
+                </div>
 
-            {/* Left Side Content */}
-            <div className="flex-1 flex flex-col justify-center items-start px-3 py-8 sm:px-8 md:px-12 lg:p-16 relative bg-cover bg-center  lg:rounded-b-none " style={{ backgroundImage: `url(${meetingImg})` }}>
-                <div className="absolute inset-0 bg-black/50 z-0"></div>
-                <div className="relative z-10 w-full flex flex-col">
-                    {/* Logo - responsive position */}
-                    <div className="flex items-center space-x-3 mb-8 sm:mb-16 mt-2 sm:mt-0">
-                        <div className="w-8 h-8 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-lg flex items-center justify-center">
-                            <span className="text-white font-bold text-sm">C</span>
+                {/* Left Side Content */}
+                <div className="flex-1 flex flex-col justify-center items-start px-3 py-8 sm:px-8 md:px-12 lg:p-16 relative bg-cover bg-center  lg:rounded-b-none " style={{ backgroundImage: `url(${meetingImg})` }}>
+                    <div className="absolute inset-0 bg-black/50 z-0"></div>
+                    <div className="relative z-10 w-full flex flex-col">
+                        {/* Logo - responsive position */}
+                        <div className="flex items-center space-x-3 mb-8 sm:mb-16 mt-2 sm:mt-0">
+                            <div className="w-8 h-8 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-lg flex items-center justify-center">
+                                <span className="text-white font-bold text-sm">C</span>
+                            </div>
+                            <span className="text-white text-xl font-semibold">ConferenceRoomBooking</span>
                         </div>
-                        <span className="text-white text-xl font-semibold">ConferenceRoomBooking</span>
-                    </div>
-                    {/* Heading */}
-                    <div className="max-w-lg">
-                        <h1 className="text-2xl sm:text-2xl md:text-3xl lg:text-5xl font-bold text-white mb-4 leading-tight">
-                            Join your
-                            <br />
-                            <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">
-                                Booking Patner!
-                            </span>
-                        </h1>
+                        {/* Heading */}
+                        <div className="max-w-lg">
+                            <h1 className="text-2xl sm:text-2xl md:text-3xl lg:text-5xl font-bold text-white mb-4 leading-tight">
+                                Join your
+                                <br />
+                                <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">
+                                    Booking Patner!
+                                </span>
+                            </h1>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            {/* Right Side Form */}
-            <div className="flex-1 flex items-center justify-center relative z-10">
-                <div className="w-full max-w-md">
-                    <div className="text-center mb-8">
-                        <h2 className="text-2xl font-bold text-white mb-2">REGISTER</h2>
-                        <p className="text-white/70">
-                            {registrationType === 'user' ? 'User Registration' : 'System Admin Registration'}
-                        </p>
-                    </div>
-
-                    {/* Registration Type Selection */}
-                    <div className="flex justify-center mb-6  backdrop-blur-sm rounded-lg p-1">
-                        <label className="flex items-center flex-1 justify-center p-3 cursor-pointer">
-                            <input
-                                type="radio"
-                                className="sr-only"
-                                name="registrationType"
-                                value="user"
-                                checked={registrationType === 'user'}
-                                onChange={() => {
-                                    setRegistrationType('user');
-                                    setCurrentStep(1);
-                                    setError('');
-                                }}
-                            />
-                            <div className={`w-full text-center py-2 px-4 rounded-md transition-all ${
-                                registrationType === 'user' 
-                                    ? 'bg-gradient-to-r from-purple-600 to-cyan-500 text-white' 
-                                    : 'text-white/70 hover:text-white'
-                            }`}>
-                                User
-                            </div>
-                        </label>
-                        <label className="flex items-center flex-1 justify-center p-3 cursor-pointer">
-                            <input
-                                type="radio"
-                                className="sr-only"
-                                name="registrationType"
-                                value="system_admin"
-                                checked={registrationType === 'system_admin'}
-                                onChange={() => {
-                                    setRegistrationType('system_admin');
-                                    setCurrentStep(1);
-                                    setError('');
-                                }}
-                            />
-                            <div className={`w-full text-center py-2 px-4 rounded-md transition-all ${
-                                registrationType === 'system_admin' 
-                                    ? 'bg-gradient-to-r from-purple-600 to-cyan-500 text-white' 
-                                    : 'text-white/70 hover:text-white'
-                            }`}>
-                                System Admin
-                            </div>
-                        </label>
-                    </div>
-
-                    {registrationType === 'user' && (
-                        <form onSubmit={handleFinalSubmit} className="w-full max-w-sm mx-auto">
-                            {/* Error and Success Messages */}
-                            {error && (
-                                <div className="mb-4 p-3 bg-red-500/20 border border-red-500/50 rounded-lg text-red-200 text-center">
-                                    {error}
-                                </div>
-                            )}
-                            {success && (
-                                <div className="mb-4 p-3 bg-green-500/20 border border-green-500/50 rounded-lg text-green-200 text-center">
-                                    {success}
-                                </div>
-                            )}
-
-                            {currentStep === 1 && renderStep1()}
-                            {currentStep === 2 && renderStep2()}
-                            {currentStep === 3 && renderStep3()}
-                        </form>
-                    )}
-
-                    {registrationType === 'system_admin' && (
-                        <div className="w-full max-w-sm mx-auto">
-                            <SystemAdminRegister />
+                {/* Right Side Form */}
+                <div className="flex-1 flex items-center justify-center relative z-10">
+                    <div className="w-full max-w-md">
+                        <div className="text-center mb-8">
+                            <h2 className="text-2xl font-bold text-white mb-2">REGISTER</h2>
+                            <p className="text-white/70">
+                                {registrationType === 'user' ? 'User Registration' : 'System Admin Registration'}
+                            </p>
                         </div>
-                    )}
 
-                    <p className="text-center text-sm text-white/60 mt-6">
-                        Already have an account? <a href="/login" className="text-purple-400 hover:text-purple-300 transition-colors">Login</a>
-                    </p>
+                        {/* Registration Type Selection */}
+                        <div className="flex justify-center mb-6  backdrop-blur-sm rounded-lg p-1">
+                            <label className="flex items-center flex-1 justify-center p-3 cursor-pointer">
+                                <input
+                                    type="radio"
+                                    className="sr-only"
+                                    name="registrationType"
+                                    value="user"
+                                    checked={registrationType === 'user'}
+                                    onChange={() => {
+                                        setRegistrationType('user');
+                                        setCurrentStep(1);
+                                        setError('');
+                                    }}
+                                />
+                                <div className={`w-full text-center py-2 px-4 rounded-md transition-all ${
+                                    registrationType === 'user' 
+                                        ? 'bg-gradient-to-r from-purple-600 to-cyan-500 text-white' 
+                                        : 'text-white/70 hover:text-white'
+                                }`}>
+                                    User
+                                </div>
+                            </label>
+                            <label className="flex items-center flex-1 justify-center p-3 cursor-pointer">
+                                <input
+                                    type="radio"
+                                    className="sr-only"
+                                    name="registrationType"
+                                    value="system_admin"
+                                    checked={registrationType === 'system_admin'}
+                                    onChange={() => {
+                                        setRegistrationType('system_admin');
+                                        setCurrentStep(1);
+                                        setError('');
+                                    }}
+                                />
+                                <div className={`w-full text-center py-2 px-4 rounded-md transition-all ${
+                                    registrationType === 'system_admin' 
+                                        ? 'bg-gradient-to-r from-purple-600 to-cyan-500 text-white' 
+                                        : 'text-white/70 hover:text-white'
+                                }`}>
+                                    System Admin
+                                </div>
+                            </label>
+                        </div>
 
-                    {/* Terms and Conditions */}
-                    <div className="text-center mt-8">
-                        <p className="text-xs text-white/50">
-                            By signing up with our <span className="text-cyan-400">Terms and Conditions</span>
+                        {registrationType === 'user' && (
+                            <form onSubmit={handleFinalSubmit} className="w-full max-w-sm mx-auto">
+                                {/* Error and Success Messages */}
+                                {error && (
+                                    <div className="mb-4 p-3 bg-red-500/20 border border-red-500/50 rounded-lg text-red-200 text-center">
+                                        {error}
+                                    </div>
+                                )}
+                                {success && (
+                                    <div className="mb-4 p-3 bg-green-500/20 border border-green-500/50 rounded-lg text-green-200 text-center">
+                                        {success}
+                                    </div>
+                                )}
+
+                                {currentStep === 1 && renderStep1()}
+                                {currentStep === 2 && renderStep2()}
+                                {currentStep === 3 && renderStep3()}
+                            </form>
+                        )}
+
+                        {registrationType === 'system_admin' && (
+                            <div className="w-full max-w-sm mx-auto">
+                                <SystemAdminRegister />
+                            </div>
+                        )}
+
+                        <p className="text-center text-sm text-white/60 mt-6">
+                            Already have an account? <a href="/login" className="text-purple-400 hover:text-purple-300 transition-colors">Login</a>
                         </p>
+
+                        {/* Terms and Conditions */}
+                        <div className="text-center mt-8">
+                            <p className="text-xs text-white/50">
+                                By signing up with our <span className="text-cyan-400">Terms and Conditions</span>
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
