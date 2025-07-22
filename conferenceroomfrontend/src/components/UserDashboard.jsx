@@ -293,7 +293,7 @@ const UserDashboard = ({ setIsLoggedIn }) => {
                     )}
                 </header>
 
-                <main className="max-w-7xl mx-auto px-0 sm:px-2 py-8 pt-24">
+                <main className="max-w-7xl mx-auto px-0 sm:px-2 py-2 pt-24">
                     {/* Hero Section */}
                     <section className="mb-12 relative min-h-[420px]">
                         {/* Background image and overlay */}
