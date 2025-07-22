@@ -535,10 +535,10 @@ const SystemAdminDashboard = () => {
     }));
 
     return (
-        <div className="container">
+        <div className="flex-1 w-full">
             {/* Compact Global Search Bar */}
             <div className="sticky mt-0 backdrop-blur-sm border-b border-gray-700 px-2 sm:px-3 py-1">
-                <div className="max-w-7xl mx-auto">
+                <div className="container">
                     <div className="relative max-w-md mx-auto">
                         <input
                             type="text"
@@ -558,7 +558,7 @@ const SystemAdminDashboard = () => {
 
             {/* Compact Content */}
             <div className="p-2 sm:p-3">
-                <div className="max-w-7xl mx-auto">
+                <div className="container">
                     {/* Compact Header */}
                     <div className="mb-3">
                         <h1 className="text-xl sm:text-2xl font-bold text-white mb-1">System Admin Dashboard</h1>
