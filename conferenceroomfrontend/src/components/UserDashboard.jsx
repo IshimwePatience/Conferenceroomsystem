@@ -292,36 +292,35 @@ const UserDashboard = ({ setIsLoggedIn }) => {
                 )}
             </header>
 
-            <main className="w-full px-2 sm:px-4 py-2 pt-0">
-                {/* Hero Section */}
-                <section className="mb-12 relative min-h-[420px]">
-                    {/* Background image and overlay */}
-                    <div
-                        className="absolute inset-0  z-0 min-h-[420px] bg-fixed bg-cover"
-                        style={{ backgroundImage: `url(${Meeting})` }}
-                    >
-                        <div className="absolute inset-0  min-h-[420px]"></div>
+            {/* Hero Section - Full Width Edge to Edge */}
+            <section className="relative min-h-[420px] py-0 mt-20 mb-12">
+                {/* Background image and overlay */}
+                <div
+                    className="absolute inset-0 z-0 min-h-[420px] bg-fixed bg-cover bg-center"
+                    style={{ backgroundImage: `url(${Meeting})` }}
+                >
+                    <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-blue-900/80 min-h-[420px]"></div>
+                </div>
+                {/* Content above background */}
+                <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 items-center min-h-[420px] px-4 sm:px-6">
+                    <div>
+                        <h2 className="text-2xl sm:text-4xl font-bold text-white mb-4">
+                            Make your space work for your team
+                        </h2>
+                        <p className="text-base sm:text-xl text-white/80 mb-6">
+                            {dashboardData.message || 'Welcome to your dashboard'}
+                        </p>
+                        <Link 
+                            to="/rooms" 
+                            className="inline-block px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 text-white font-medium rounded-lg hover:opacity-90 transition-colors text-sm sm:text-base shadow-md"
+                        >
+                            Book Now
+                        </Link>
                     </div>
-                    {/* Content above background */}
-                    <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 items-center min-h-[420px]">
-                        <div>
-                            <h2 className="text-2xl sm:text-4xl font-bold text-white mb-4">
-                                Make your space work for your team
-                            </h2>
-                            <p className="text-base sm:text-xl text-white/80 mb-6">
-                                {dashboardData.message || 'Welcome to your dashboard'}
-                            </p>
-                            <Link 
-                                to="/rooms" 
-                                className="inline-block px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 text-white font-medium rounded-lg hover:opacity-90 transition-colors text-sm sm:text-base shadow-md"
-                            >
-                                Book Now
-                            </Link>
-                        </div>
-                        {/* Remove the separate image column */}
-                    </div>
-                </section>
+                </div>
+            </section>
 
+            <main className="w-full px-2 sm:px-4 py-2">
                 {/* Quick Stats */}
                 <section className="mb-12">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
