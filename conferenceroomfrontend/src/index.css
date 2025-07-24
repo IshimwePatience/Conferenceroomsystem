@@ -10,6 +10,11 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  place-items: center;
+  display: flex;
+  min-width: 320vh;
+  min-height: 100px;
 }
 
 

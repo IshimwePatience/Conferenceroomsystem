@@ -535,7 +535,7 @@ const Login = ({ setIsLoggedIn, setUserRole }) => {
                     {/* Logo - responsive position */}
                     <div className="flex items-center space-x-3 mb-8 sm:mb-16 mt-2 sm:mt-0">
                         <div className="w-8 h-8 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-lg flex items-center justify-center">
-                            <span className="text-white font-bold text-sm">C</span>
+                            <span className="text-white font-bold text-sm"> C </span>
                         </div>
                         <span className="text-white text-xl font-semibold">ConferenceRoomBooking</span>
                     </div>

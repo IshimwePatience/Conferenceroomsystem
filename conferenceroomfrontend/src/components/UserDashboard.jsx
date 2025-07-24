@@ -180,7 +180,7 @@ const UserDashboard = ({ setIsLoggedIn }) => {
     return (
         <div className="min-h-screen bg-gradient-to-b from-gray-900 via-blue-900 to-purple-900">
             {/* Top Navigation */}
-            <header className="fixed top-0 left-0 right-0 bg-black/80 border-b border-blue-900 px-4 sm:px-6 py-4 z-50">
+            <header className="fixed top-0 left-0 right-0 bg-black/80 border-b border-blue-900 px-2 sm:px-2 lg:px-2 py-2 z-50">
                 <div className="max-w-7xl mx-auto flex items-center justify-between">
                     {/* Logo */}
                     <div className="flex items-center space-x-3">
