@@ -53,6 +53,62 @@
   }
 }
 
+/* Smaller screens - reduce sizes */
+@media (max-width: 640px) {
+  :root {
+    --form-input-px: 0.6rem;
+    --form-input-py: 0.4rem;
+    --form-button-py: 0.4rem;
+    --form-text-size: 0.8rem;
+    --form-button-text: 0.8rem;
+    --form-spacing: 0.8rem;
+    --form-container-width: 18rem;
+  }
+
+  input, button, select, textarea {
+    font-size: 0.8rem !important;
+    padding: 0.4rem 0.6rem !important;
+    min-height: 2.5rem !important;
+  }
+
+  .container, .max-w-md, .max-w-sm {
+    max-width: 18rem !important;
+  }
+
+  h1 { font-size: 1.5rem !important; }
+  h2 { font-size: 1.25rem !important; }
+}
+
+/* Very small screens - further reduce sizes */
+@media (max-width: 480px) {
+  :root {
+    --form-input-px: 0.5rem;
+    --form-input-py: 0.35rem;
+    --form-button-py: 0.35rem;
+    --form-text-size: 0.75rem;
+    --form-button-text: 0.75rem;
+    --form-spacing: 0.7rem;
+    --form-container-width: 16rem;
+  }
+
+  input, button, select, textarea {
+    font-size: 0.75rem !important;
+    padding: 0.35rem 0.5rem !important;
+    min-height: 2.3rem !important;
+  }
+
+  .responsive-form {
+    max-width: 95vw !important;
+  }
+
+  .container, .max-w-md, .max-w-sm {
+    max-width: 16rem !important;
+  }
+
+  h1 { font-size: 1.3rem !important; }
+  h2 { font-size: 1.1rem !important; }
+}
+
 /* Reset and base styles */
 * {
   box-sizing: border-box;
