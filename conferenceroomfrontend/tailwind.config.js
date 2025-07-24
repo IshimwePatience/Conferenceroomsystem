@@ -25,9 +25,14 @@ export default {
     extend: {
       screens: {
         'xs': '475px',
+        'sm': '640px',
+        'md': '768px',
+        'lg': '1024px',
+        'xl': '1280px',
+        '2xl': '1536px',
         // CRITICAL: Simple fix for your 1920×1080 @ 150% scaling
         'scaled': '1200px',
-        'small-laptop': {'min': '768px', 'max': '1023px'},
+        // Use standard breakpoints instead of custom ones
         '3xl': '1920px',
       },
       
@@ -83,19 +88,19 @@ export default {
           margin: '0 auto',
           padding: theme('spacing.6'),
           
-          // Small laptop (FIXED - more compact)
-          '@media (min-width: 768px) and (max-width: 1023px)': {
-            maxWidth: '18rem', // Much smaller container
+          // Tablet and small laptop (md breakpoint = 768px+)
+          '@media (min-width: 768px)': {
+            maxWidth: '18rem', // Smaller container
             padding: theme('spacing.3'), // Tighter padding
           },
           
-          // Tiny laptops (13" and smaller)
-          '@media (min-width: 768px) and (max-width: 900px)': {
-            maxWidth: '16rem', // Even smaller
-            padding: theme('spacing.2'),
+          // Desktop and your 1920×1080 @ 150% display (lg breakpoint = 1024px+)
+          '@media (min-width: 1024px)': {
+            maxWidth: theme('maxWidth.form-md'),
+            padding: theme('spacing.6'),
           },
           
-          // Your 1920×1080 @ 150% display
+          // Your scaled display (1200px+)
           '@media (min-width: 1200px)': {
             maxWidth: theme('maxWidth.form-md'),
             padding: theme('spacing.8'),
@@ -116,20 +121,21 @@ export default {
           borderRadius: theme('borderRadius.lg'),
           transition: 'all 0.3s ease',
           
-          // Small laptop (FIXED - more compact)
-          '@media (min-width: 768px) and (max-width: 1023px)': {
-            padding: `${theme('spacing.1')} ${theme('spacing.2')}`, // Much tighter
-            fontSize: theme('fontSize.sm[0]'), // Smaller text
-            borderRadius: theme('borderRadius.md'), // Smaller radius
+          // Tablet and small laptop (md breakpoint = 768px+) - COMPACT
+          '@media (min-width: 768px)': {
+            padding: '0.375rem 0.5rem', // Very compact
+            fontSize: '0.875rem', // Smaller text
+            borderRadius: theme('borderRadius.md'),
           },
           
-          // Tiny laptops
-          '@media (min-width: 768px) and (max-width: 900px)': {
-            padding: `0.375rem 0.5rem`, // Even tighter
-            fontSize: '0.8rem', // Even smaller
+          // Desktop (lg breakpoint = 1024px+) - NORMAL
+          '@media (min-width: 1024px)': {
+            padding: `${theme('spacing.3')} ${theme('spacing.4')}`,
+            fontSize: theme('fontSize.base[0]'),
+            borderRadius: theme('borderRadius.lg'),
           },
           
-          // Your 1920×1080 @ 150% display
+          // Your 1920×1080 @ 150% display (1200px+) - LARGER
           '@media (min-width: 1200px)': {
             padding: `${theme('spacing.r-4')} ${theme('spacing.r-5')}`,
             fontSize: theme('fontSize.responsive-base[0]'),
@@ -153,20 +159,21 @@ export default {
           cursor: 'pointer',
           transition: 'all 0.3s ease',
           
-          // Small laptop (FIXED - more compact)
-          '@media (min-width: 768px) and (max-width: 1023px)': {
-            padding: `${theme('spacing.1')} ${theme('spacing.2')}`, // Much tighter
-            fontSize: theme('fontSize.sm[0]'), // Smaller text
-            borderRadius: theme('borderRadius.md'), // Smaller radius
+          // Tablet and small laptop (md breakpoint = 768px+) - COMPACT
+          '@media (min-width: 768px)': {
+            padding: '0.375rem 0.5rem', // Very compact
+            fontSize: '0.875rem', // Smaller text
+            borderRadius: theme('borderRadius.md'),
           },
           
-          // Tiny laptops
-          '@media (min-width: 768px) and (max-width: 900px)': {
-            padding: `0.375rem 0.5rem`, // Even tighter
-            fontSize: '0.8rem', // Even smaller
+          // Desktop (lg breakpoint = 1024px+) - NORMAL
+          '@media (min-width: 1024px)': {
+            padding: `${theme('spacing.3')} ${theme('spacing.4')}`,
+            fontSize: theme('fontSize.base[0]'),
+            borderRadius: theme('borderRadius.lg'),
           },
           
-          // Your 1920×1080 @ 150% display
+          // Your 1920×1080 @ 150% display (1200px+) - LARGER
           '@media (min-width: 1200px)': {
             padding: `${theme('spacing.r-4')} ${theme('spacing.r-5')}`,
             fontSize: theme('fontSize.responsive-base[0]'),
