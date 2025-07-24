@@ -14,6 +14,80 @@
   --form-container-width: 20rem;
 }
 
+/* Very small screens */
+@media (max-width: 360px) {
+  :root {
+    --form-input-px: 0.5rem;
+    --form-input-py: 0.3rem;
+    --form-button-py: 0.3rem;
+    --form-text-size: 0.7rem;
+    --form-button-text: 0.7rem;
+    --form-spacing: 0.6rem;
+    --form-container-width: 15rem;
+  }
+  
+  .responsive-form {
+    transform: scale(0.9);
+    transform-origin: center;
+    max-width: 100vw !important;
+  }
+  
+  input, button, select, textarea {
+    font-size: 0.7rem !important;
+    padding: 0.3rem 0.5rem !important;
+    min-height: 2.2rem !important;
+  }
+  
+  h1 { font-size: 1.25rem !important; }
+  h2 { font-size: 1.1rem !important; }
+}
+
+/* Small mobile screens */
+@media (min-width: 361px) and (max-width: 480px) {
+  :root {
+    --form-input-px: 0.6rem;
+    --form-input-py: 0.35rem;
+    --form-button-py: 0.35rem;
+    --form-text-size: 0.75rem;
+    --form-button-text: 0.75rem;
+    --form-spacing: 0.7rem;
+    --form-container-width: 16rem;
+  }
+  
+  .responsive-form {
+    max-width: 95vw !important;
+    padding: 0.5rem;
+  }
+  
+  input, button, select, textarea {
+    font-size: 0.75rem !important;
+    padding: 0.35rem 0.6rem !important;
+    min-height: 2.5rem !important;
+  }
+  
+  h1 { 
+    font-size: 1.5rem !important; 
+    line-height: 1.3;
+  }
+  h2 { 
+    font-size: 1.25rem !important; 
+    line-height: 1.3;
+  }
+}
+
+/* Regular mobile screens */
+@media (min-width: 481px) and (max-width: 640px) {
+  :root {
+    --form-input-px: 0.75rem;
+    --form-input-py: 0.4rem;
+    --form-button-py: 0.4rem;
+    --form-text-size: 0.8rem;
+    --form-button-text: 0.8rem;
+    --form-spacing: 0.8rem;
+    --form-container-width: 18rem;
+  }
+}
+
 /* Small laptops and up - reduce sizes */
 @media (min-width: 768px) and (max-width: 1023px) {
   :root {

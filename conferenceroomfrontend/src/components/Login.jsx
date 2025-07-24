@@ -287,7 +287,7 @@ const Login = ({ setIsLoggedIn, setUserRole }) => {
     // Renders the main login form
     const renderLoginForm = () => (
         <form onSubmit={handleLoginSubmit} className="w-full responsive-form">
-            <div className="mb-6 form-spacing">
+            <div className="fluid-spacing-medium">
                 <input 
                     type="email" 
                     value={email} 
@@ -297,7 +297,7 @@ const Login = ({ setIsLoggedIn, setUserRole }) => {
                     required 
                 />
             </div>
-            <div className="mb-4 form-spacing">
+            <div className="fluid-spacing-medium">
                 <input 
                     type="password" 
                     value={password} 
@@ -307,8 +307,8 @@ const Login = ({ setIsLoggedIn, setUserRole }) => {
                     required 
                 />
             </div>
-            <div className="mb-6 flex items-center justify-between">
-                <label className="flex items-center text-white/80 text-sm">
+            <div className="fluid-spacing-medium flex items-center justify-between">
+                <label className="flex items-center text-white/80 fluid-text-small">
                     <input 
                         type="checkbox" 
                         checked={rememberMe} 
@@ -320,28 +320,28 @@ const Login = ({ setIsLoggedIn, setUserRole }) => {
                 <button 
                     type="button" 
                     onClick={() => setCurrentView('FORGOT_PASSWORD')} 
-                    className="text-sm text-cyan-400 hover:text-cyan-300 transition-colors"
+                    className="fluid-text-small text-cyan-400 hover:text-cyan-300 transition-colors"
                 >
                     Forgot Password?
                 </button>
             </div>
             <button 
                 type="submit" 
-                className="w-full bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 text-white rounded-lg font-medium hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 mb-4"
+                className="w-full bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 text-white rounded-lg font-medium hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 fluid-spacing-small"
             >
                 Sign in
             </button>
             
-            <div className="flex items-center justify-center mb-4">
+            <div className="flex items-center justify-center fluid-spacing-small">
                 <div className="border-t border-white/20 flex-grow"></div>
-                <span className="px-4 text-white/60 text-sm">Or continue with</span>
+                <span className="px-4 text-white/60 fluid-text-small">Or continue with</span>
                 <div className="border-t border-white/20 flex-grow"></div>
             </div>
             
             <button 
                 type="button" 
                 onClick={() => handleGoogleLoginClick()} 
-                className="w-full flex items-center justify-center bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg text-white hover:bg-white/20 transition-all duration-300 mb-6"
+                className="w-full flex items-center justify-center bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg text-white hover:bg-white/20 transition-all duration-300 fluid-spacing-medium"
             >
                 <svg className="w-5 h-5 mr-3" viewBox="0 0 48 48">
                     <path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12s5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24s8.955,20,20,20s20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"></path>
@@ -352,7 +352,7 @@ const Login = ({ setIsLoggedIn, setUserRole }) => {
                 Google
             </button>
             
-            <p className="text-center text-sm text-white/60">
+            <p className="text-center fluid-text-small text-white/60">
                 Don't have an account? <a href="/register" className="text-purple-400 hover:text-purple-300 transition-colors">Register here</a>
             </p>
         </form>
@@ -361,7 +361,7 @@ const Login = ({ setIsLoggedIn, setUserRole }) => {
     // Renders the 2FA code input form
     const render2FAForm = () => (
         <form onSubmit={handle2FASubmit} className="w-full responsive-form">
-            <div className="mb-6 form-spacing">
+            <div className="fluid-spacing-medium">
                 <input 
                     type="text" 
                     value={twoFactorCode} 
@@ -373,7 +373,7 @@ const Login = ({ setIsLoggedIn, setUserRole }) => {
             </div>
             <button 
                 type="submit" 
-                className="w-full bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 text-white rounded-lg font-medium hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 mb-4"
+                className="w-full bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 text-white rounded-lg font-medium hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 fluid-spacing-small"
             >
                 Verify Code
             </button>
@@ -381,14 +381,14 @@ const Login = ({ setIsLoggedIn, setUserRole }) => {
                 <button 
                     type="button" 
                     onClick={handleResend2FACode}
-                    className="w-full text-cyan-400 hover:text-cyan-300 transition-colors text-center text-sm"
+                    className="w-full text-cyan-400 hover:text-cyan-300 transition-colors text-center fluid-text-small"
                 >
                     Resend Code
                 </button>
                 <button 
                     type="button" 
                     onClick={() => setCurrentView('LOGIN')} 
-                    className="w-full text-cyan-400 hover:text-cyan-300 transition-colors text-center text-sm"
+                    className="w-full text-cyan-400 hover:text-cyan-300 transition-colors text-center fluid-text-small"
                 >
                     Back to Login
                 </button>
@@ -399,7 +399,7 @@ const Login = ({ setIsLoggedIn, setUserRole }) => {
     // Renders the forgot password form
     const renderForgotPasswordForm = () => (
         <form onSubmit={handleForgotPasswordSubmit} className="w-full responsive-form">
-            <div className="mb-6 form-spacing">
+            <div className="fluid-spacing-medium">
                 <input 
                     type="email" 
                     value={email} 
@@ -411,14 +411,14 @@ const Login = ({ setIsLoggedIn, setUserRole }) => {
             </div>
             <button 
                 type="submit" 
-                className="w-full bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 text-white rounded-lg font-medium hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 mb-4"
+                className="w-full bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 text-white rounded-lg font-medium hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 fluid-spacing-small"
             >
                 Send Reset Code
             </button>
             <button 
                 type="button" 
                 onClick={() => setCurrentView('LOGIN')} 
-                className="w-full text-cyan-400 hover:text-cyan-300 transition-colors text-center text-sm"
+                className="w-full text-cyan-400 hover:text-cyan-300 transition-colors text-center fluid-text-small"
             >
                 Back to Login
             </button>
@@ -428,7 +428,7 @@ const Login = ({ setIsLoggedIn, setUserRole }) => {
     // Renders the reset code input form
     const renderResetCodeForm = () => (
         <form onSubmit={handleResetCodeSubmit} className="w-full responsive-form">
-            <div className="mb-6 form-spacing">
+            <div className="fluid-spacing-medium">
                 <input 
                     type="text" 
                     value={resetCode} 
@@ -440,7 +440,7 @@ const Login = ({ setIsLoggedIn, setUserRole }) => {
             </div>
             <button 
                 type="submit" 
-                className="w-full bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 text-white rounded-lg font-medium hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 mb-4"
+                className="w-full bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 text-white rounded-lg font-medium hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 fluid-spacing-small"
             >
                 Verify Code
             </button>
@@ -448,14 +448,14 @@ const Login = ({ setIsLoggedIn, setUserRole }) => {
                 <button 
                     type="button" 
                     onClick={handleResendCode}
-                    className="w-full text-cyan-400 hover:text-cyan-300 transition-colors text-center text-sm"
+                    className="w-full text-cyan-400 hover:text-cyan-300 transition-colors text-center fluid-text-small"
                 >
                     Resend Code
                 </button>
                 <button 
                     type="button" 
                     onClick={() => setCurrentView('LOGIN')} 
-                    className="w-full text-cyan-400 hover:text-cyan-300 transition-colors text-center text-sm"
+                    className="w-full text-cyan-400 hover:text-cyan-300 transition-colors text-center fluid-text-small"
                 >
                     Back to Login
                 </button>
@@ -466,7 +466,7 @@ const Login = ({ setIsLoggedIn, setUserRole }) => {
     // Renders the new password form
     const renderNewPasswordForm = () => (
         <form onSubmit={handleNewPasswordSubmit} className="w-full responsive-form">
-            <div className="mb-6 form-spacing">
+            <div className="fluid-spacing-medium">
                 <input 
                     type="password" 
                     value={newPassword} 
@@ -476,7 +476,7 @@ const Login = ({ setIsLoggedIn, setUserRole }) => {
                     required 
                 />
             </div>
-            <div className="mb-6 form-spacing">
+            <div className="fluid-spacing-medium">
                 <input 
                     type="password" 
                     value={confirmPassword} 
@@ -488,14 +488,14 @@ const Login = ({ setIsLoggedIn, setUserRole }) => {
             </div>
             <button 
                 type="submit" 
-                className="w-full bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 text-white rounded-lg font-medium hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 mb-4"
+                className="w-full bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 text-white rounded-lg font-medium hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 fluid-spacing-small"
             >
                 Reset Password
             </button>
             <button 
                 type="button" 
                 onClick={() => setCurrentView('FORGOT_PASSWORD')} 
-                className="w-full text-cyan-400 hover:text-cyan-300 transition-colors text-center text-sm"
+                className="w-full text-cyan-400 hover:text-cyan-300 transition-colors text-center fluid-text-small"
             >
                 Back to Forgot Password
             </button>
@@ -532,16 +532,16 @@ const Login = ({ setIsLoggedIn, setUserRole }) => {
                 {/* Overlay for readability */}
                 <div className="absolute inset-0 bg-black/50 z-0"></div>
                 <div className="relative z-10 w-full flex flex-col">
-                    {/* Logo - responsive sizing */}
-                    <div className="flex items-center space-x-3 mb-8 sm:mb-16 mt-2 sm:mt-0">
+                    {/* Logo - fluid sizing */}
+                    <div className="flex items-center space-x-3 fluid-spacing-large mt-2 sm:mt-0">
                         <div className="w-8 h-8 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-lg flex items-center justify-center">
-                            <span className="text-white font-bold text-sm"> C </span>
+                            <span className="text-white font-bold fluid-text-small"> C </span>
                         </div>
-                        <span className="text-white text-xl font-semibold">ConferenceRoomBooking</span>
+                        <span className="text-white fluid-text font-semibold">ConferenceRoomBooking</span>
                     </div>
-                    {/* Heading - responsive typography */}
+                    {/* Heading - fluid typography */}
                     <div className="max-w-lg">
-                        <h1 className="text-2xl sm:text-2xl md:text-3xl lg:text-5xl font-bold text-white mb-4 leading-tight">
+                        <h1 className="fluid-heading-large font-bold text-white mb-4 leading-tight">
                             Sign in to your
                             <br />
                             <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">
@@ -554,16 +554,16 @@ const Login = ({ setIsLoggedIn, setUserRole }) => {
 
             {/* Right Side Form */}
             <div className="flex-1 flex items-center justify-center relative z-10">
-                <div className="container w-full max-w-md">
-                    <div className="text-center mb-8">
-                        <h2 className="text-2xl font-bold text-white mb-2">
+                <div className="fluid-container">
+                    <div className="text-center fluid-spacing-large">
+                        <h2 className="fluid-heading-medium font-bold text-white mb-2">
                             {currentView === 'LOGIN' && 'SIGN IN'}
                             {currentView === '2FA' && 'VERIFY CODE'}
                             {currentView === 'FORGOT_PASSWORD' && 'RESET PASSWORD'}
                             {currentView === 'RESET_CODE' && 'ENTER RESET CODE'}
                             {currentView === 'NEW_PASSWORD' && 'SET NEW PASSWORD'}
                         </h2>
-                        <p className="text-white/70">
+                        <p className="text-white/70 fluid-text">
                             {currentView === 'LOGIN' && 'Sign in with email address'}
                             {currentView === '2FA' && 'Enter your verification code'}
                             {currentView === 'FORGOT_PASSWORD' && 'Enter your email for reset link'}
@@ -574,12 +574,12 @@ const Login = ({ setIsLoggedIn, setUserRole }) => {
 
                     {/* Error and Success Messages */}
                     {error && (
-                        <div className="mb-4 p-3 bg-red-500/20 border border-red-500/50 rounded-lg text-red-200 text-center">
+                        <div className="fluid-spacing-small p-3 bg-red-500/20 border border-red-500/50 rounded-lg text-red-200 text-center">
                             {error}
                         </div>
                     )}
                     {message && (
-                        <div className="mb-4 p-3 bg-green-500/20 border border-green-500/50 rounded-lg text-green-200 text-center">
+                        <div className="fluid-spacing-small p-3 bg-green-500/20 border border-green-500/50 rounded-lg text-green-200 text-center">
                             {message}
                         </div>
                     )}
@@ -593,8 +593,8 @@ const Login = ({ setIsLoggedIn, setUserRole }) => {
                     </div>
 
                     {/* Terms and Conditions */}
-                    <div className="text-center mt-8">
-                        <p className="text-xs text-white/50">
+                    <div className="text-center fluid-spacing-large">
+                        <p className="fluid-text-small text-white/50">
                             By signing up with our <span className="text-cyan-400">Terms and Conditions</span>
                         </p>
                     </div>
