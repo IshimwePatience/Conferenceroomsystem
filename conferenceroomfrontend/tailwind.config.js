@@ -83,10 +83,16 @@ export default {
           margin: '0 auto',
           padding: theme('spacing.6'),
           
-          // Small laptop (your problem area)
+          // Small laptop (FIXED - more compact)
           '@media (min-width: 768px) and (max-width: 1023px)': {
-            maxWidth: theme('maxWidth.form-sm'),
-            padding: theme('spacing.4'),
+            maxWidth: '18rem', // Much smaller container
+            padding: theme('spacing.3'), // Tighter padding
+          },
+          
+          // Tiny laptops (13" and smaller)
+          '@media (min-width: 768px) and (max-width: 900px)': {
+            maxWidth: '16rem', // Even smaller
+            padding: theme('spacing.2'),
           },
           
           // Your 1920×1080 @ 150% display
@@ -110,10 +116,17 @@ export default {
           borderRadius: theme('borderRadius.lg'),
           transition: 'all 0.3s ease',
           
-          // Small laptop
+          // Small laptop (FIXED - more compact)
           '@media (min-width: 768px) and (max-width: 1023px)': {
-            padding: `${theme('spacing.2')} ${theme('spacing.3')}`,
-            fontSize: theme('fontSize.sm[0]'),
+            padding: `${theme('spacing.1')} ${theme('spacing.2')}`, // Much tighter
+            fontSize: theme('fontSize.sm[0]'), // Smaller text
+            borderRadius: theme('borderRadius.md'), // Smaller radius
+          },
+          
+          // Tiny laptops
+          '@media (min-width: 768px) and (max-width: 900px)': {
+            padding: `0.375rem 0.5rem`, // Even tighter
+            fontSize: '0.8rem', // Even smaller
           },
           
           // Your 1920×1080 @ 150% display
@@ -140,10 +153,17 @@ export default {
           cursor: 'pointer',
           transition: 'all 0.3s ease',
           
-          // Small laptop
+          // Small laptop (FIXED - more compact)
           '@media (min-width: 768px) and (max-width: 1023px)': {
-            padding: `${theme('spacing.2')} ${theme('spacing.3')}`,
-            fontSize: theme('fontSize.sm[0]'),
+            padding: `${theme('spacing.1')} ${theme('spacing.2')}`, // Much tighter
+            fontSize: theme('fontSize.sm[0]'), // Smaller text
+            borderRadius: theme('borderRadius.md'), // Smaller radius
+          },
+          
+          // Tiny laptops
+          '@media (min-width: 768px) and (max-width: 900px)': {
+            padding: `0.375rem 0.5rem`, // Even tighter
+            fontSize: '0.8rem', // Even smaller
           },
           
           // Your 1920×1080 @ 150% display

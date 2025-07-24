@@ -239,20 +239,20 @@ const Login = ({ setIsLoggedIn, setUserRole }) => {
                 required 
             />
             
-            <div className="flex items-center justify-between mb-4">
-                <label className="flex items-center text-white/80 text-sm">
+            <div className="flex items-center justify-between mb-2 small-laptop:mb-1">
+                <label className="flex items-center text-white/80 text-sm small-laptop:text-xs">
                     <input 
                         type="checkbox" 
                         checked={rememberMe} 
                         onChange={(e) => setRememberMe(e.target.checked)} 
-                        className="mr-2 rounded w-4 h-4" 
+                        className="mr-1 small-laptop:mr-1 rounded w-3 h-3 small-laptop:w-3 small-laptop:h-3" 
                     />
                     Remember Me
                 </label>
                 <button 
                     type="button" 
                     onClick={() => setCurrentView('FORGOT_PASSWORD')} 
-                    className="text-sm text-cyan-400 hover:text-cyan-300 transition-colors"
+                    className="text-sm small-laptop:text-xs text-cyan-400 hover:text-cyan-300 transition-colors"
                 >
                     Forgot Password?
                 </button>
@@ -265,9 +265,9 @@ const Login = ({ setIsLoggedIn, setUserRole }) => {
                 Sign in
             </button>
             
-            <div className="flex items-center justify-center mb-4">
+            <div className="flex items-center justify-center mb-3 small-laptop:mb-2">
                 <div className="border-t border-white/20 flex-grow"></div>
-                <span className="px-4 text-white/60 text-sm">Or continue with</span>
+                <span className="px-3 small-laptop:px-2 text-white/60 text-sm small-laptop:text-xs">Or continue with</span>
                 <div className="border-t border-white/20 flex-grow"></div>
             </div>
             
@@ -285,7 +285,7 @@ const Login = ({ setIsLoggedIn, setUserRole }) => {
                 Google
             </button>
             
-            <p className="text-center text-sm text-white/60">
+            <p className="text-center text-sm small-laptop:text-xs text-white/60">
                 Don't have an account? <a href="/register" className="text-purple-400 hover:text-purple-300 transition-colors">Register here</a>
             </p>
         </form>
@@ -446,20 +446,20 @@ const Login = ({ setIsLoggedIn, setUserRole }) => {
             </div>
 
             {/* Left Side Content */}
-            <div className="flex-1 flex flex-col justify-center items-start px-6 py-8 sm:px-8 md:px-12 lg:p-16 relative bg-cover bg-center" style={{ backgroundImage: `url(${meetingImg})` }}>
+            <div className="flex-1 flex flex-col justify-center items-start px-6 py-6 small-laptop:px-4 small-laptop:py-4 sm:px-8 md:px-12 lg:p-16 relative bg-cover bg-center" style={{ backgroundImage: `url(${meetingImg})` }}>
                 <div className="absolute inset-0 bg-black/50 z-0"></div>
                 <div className="relative z-10 w-full flex flex-col">
                     {/* Logo */}
-                    <div className="flex items-center space-x-3 mb-8 sm:mb-16">
-                        <div className="w-8 h-8 md:w-10 md:h-10 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-lg flex items-center justify-center">
-                            <span className="text-white font-bold text-sm md:text-base">C</span>
+                    <div className="flex items-center space-x-3 mb-6 small-laptop:mb-4 sm:mb-16">
+                        <div className="w-8 h-8 md:w-10 md:h-10 small-laptop:w-7 small-laptop:h-7 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-lg flex items-center justify-center">
+                            <span className="text-white font-bold text-sm md:text-base small-laptop:text-xs">C</span>
                         </div>
-                        <span className="text-white text-xl md:text-2xl font-semibold">ConferenceRoomBooking</span>
+                        <span className="text-white text-xl md:text-2xl small-laptop:text-lg font-semibold">ConferenceRoomBooking</span>
                     </div>
                     
                     {/* Heading */}
                     <div className="max-w-lg">
-                        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight">
+                        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl small-laptop:text-2xl font-bold text-white mb-4 small-laptop:mb-2 leading-tight">
                             Sign in to your
                             <br />
                             <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">
@@ -471,17 +471,17 @@ const Login = ({ setIsLoggedIn, setUserRole }) => {
             </div>
 
             {/* Right Side Form */}
-            <div className="flex-1 flex items-center justify-center relative z-10 px-6 py-8">
+            <div className="flex-1 flex items-center justify-center relative z-10 px-6 py-6 small-laptop:px-3 small-laptop:py-3">
                 <div className="w-full max-w-md">
-                    <div className="text-center mb-8">
-                        <h2 className="text-2xl font-bold text-white mb-2">
+                    <div className="text-center mb-6 small-laptop:mb-4">
+                        <h2 className="text-2xl small-laptop:text-xl font-bold text-white mb-2 small-laptop:mb-1">
                             {currentView === 'LOGIN' && 'SIGN IN'}
                             {currentView === '2FA' && 'VERIFY CODE'}
                             {currentView === 'FORGOT_PASSWORD' && 'RESET PASSWORD'}
                             {currentView === 'RESET_CODE' && 'ENTER RESET CODE'}
                             {currentView === 'NEW_PASSWORD' && 'SET NEW PASSWORD'}
                         </h2>
-                        <p className="text-white/70">
+                        <p className="text-white/70 small-laptop:text-sm">
                             {currentView === 'LOGIN' && 'Sign in with email address'}
                             {currentView === '2FA' && 'Enter your verification code'}
                             {currentView === 'FORGOT_PASSWORD' && 'Enter your email for reset link'}
@@ -492,12 +492,12 @@ const Login = ({ setIsLoggedIn, setUserRole }) => {
 
                     {/* Error and Success Messages */}
                     {error && (
-                        <div className="mb-4 p-3 bg-red-500/20 border border-red-500/50 rounded-lg text-red-200 text-center text-sm">
+                        <div className="mb-3 small-laptop:mb-2 p-2 small-laptop:p-1 bg-red-500/20 border border-red-500/50 rounded-lg text-red-200 text-center text-sm small-laptop:text-xs">
                             {error}
                         </div>
                     )}
                     {message && (
-                        <div className="mb-4 p-3 bg-green-500/20 border border-green-500/50 rounded-lg text-green-200 text-center text-sm">
+                        <div className="mb-3 small-laptop:mb-2 p-2 small-laptop:p-1 bg-green-500/20 border border-green-500/50 rounded-lg text-green-200 text-center text-sm small-laptop:text-xs">
                             {message}
                         </div>
                     )}
@@ -511,8 +511,8 @@ const Login = ({ setIsLoggedIn, setUserRole }) => {
                     </div>
 
                     {/* Terms and Conditions */}
-                    <div className="text-center mt-8">
-                        <p className="text-xs text-white/50">
+                    <div className="text-center mt-6 small-laptop:mt-3">
+                        <p className="text-xs small-laptop:text-xs text-white/50">
                             By signing up with our <span className="text-cyan-400">Terms and Conditions</span>
                         </p>
                     </div>
