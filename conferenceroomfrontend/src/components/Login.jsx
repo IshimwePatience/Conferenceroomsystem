@@ -286,23 +286,23 @@ const Login = ({ setIsLoggedIn, setUserRole }) => {
 
     // Renders the main login form
     const renderLoginForm = () => (
-        <form onSubmit={handleLoginSubmit} className="w-full max-w-sm">
-            <div className="mb-6">
+        <form onSubmit={handleLoginSubmit} className="w-full responsive-form">
+            <div className="mb-6 form-spacing">
                 <input 
                     type="email" 
                     value={email} 
                     onChange={(e) => setEmail(e.target.value)} 
-                    className="w-full px-4 py-2 md:px-4 md:py-3 lg:px-4 lg:py-3 xl:px-5 xl:py-4 bg-white/10 backdrop-blur-sm rounded-lg font-light text-white placeholder-white/70 hover:shadow-2xl focus:outline-none transition-all text-sm md:text-base lg:text-base xl:text-lg" 
+                    className="w-full bg-white/10 backdrop-blur-sm rounded-lg font-light text-white placeholder-white/70 hover:shadow-2xl focus:outline-none transition-all" 
                     placeholder="Enter email address"
                     required 
                 />
             </div>
-            <div className="mb-4">
+            <div className="mb-4 form-spacing">
                 <input 
                     type="password" 
                     value={password} 
                     onChange={(e) => setPassword(e.target.value)} 
-                    className="w-full px-4 py-2 md:px-4 md:py-3 lg:px-4 lg:py-3 xl:px-5 xl:py-4 bg-white/10 backdrop-blur-sm rounded-lg font-light text-white placeholder-white/70 hover:shadow-2xl focus:outline-none transition-all text-sm md:text-base lg:text-base xl:text-lg" 
+                    className="w-full bg-white/10 backdrop-blur-sm rounded-lg font-light text-white placeholder-white/70 hover:shadow-2xl focus:outline-none transition-all" 
                     placeholder="Password"
                     required 
                 />
@@ -313,7 +313,7 @@ const Login = ({ setIsLoggedIn, setUserRole }) => {
                         type="checkbox" 
                         checked={rememberMe} 
                         onChange={(e) => setRememberMe(e.target.checked)} 
-                        className="mr-2 rounded w-4 h-4 md:w-4 md:h-4" 
+                        className="mr-2 rounded w-4 h-4" 
                     />
                     Remember Me
                 </label>
@@ -327,7 +327,7 @@ const Login = ({ setIsLoggedIn, setUserRole }) => {
             </div>
             <button 
                 type="submit" 
-                className="w-full bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 text-white py-2 md:py-3 lg:py-3 xl:py-4 rounded-lg font-medium text-sm md:text-base lg:text-base xl:text-lg hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 mb-4"
+                className="w-full bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 text-white rounded-lg font-medium hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 mb-4"
             >
                 Sign in
             </button>
@@ -341,7 +341,7 @@ const Login = ({ setIsLoggedIn, setUserRole }) => {
             <button 
                 type="button" 
                 onClick={() => handleGoogleLoginClick()} 
-                className="w-full flex items-center justify-center py-2 md:py-3 lg:py-3 xl:py-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg text-white text-sm md:text-base lg:text-base xl:text-lg hover:bg-white/20 transition-all duration-300 mb-6"
+                className="w-full flex items-center justify-center bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg text-white hover:bg-white/20 transition-all duration-300 mb-6"
             >
                 <svg className="w-5 h-5 mr-3" viewBox="0 0 48 48">
                     <path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12s5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24s8.955,20,20,20s20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"></path>
@@ -360,20 +360,20 @@ const Login = ({ setIsLoggedIn, setUserRole }) => {
 
     // Renders the 2FA code input form
     const render2FAForm = () => (
-        <form onSubmit={handle2FASubmit} className="w-full max-w-sm">
-            <div className="mb-6">
+        <form onSubmit={handle2FASubmit} className="w-full responsive-form">
+            <div className="mb-6 form-spacing">
                 <input 
                     type="text" 
                     value={twoFactorCode} 
                     onChange={(e) => setTwoFactorCode(e.target.value)} 
-                    className="w-full px-4 py-3 md:px-4 md:py-3 lg:px-4 lg:py-3 xl:px-5 xl:py-4 bg-white/10 backdrop-blur-sm rounded-lg font-light text-white placeholder-white/70 hover:shadow-2xl focus:outline-none transition-all text-sm md:text-base lg:text-base xl:text-lg" 
+                    className="w-full bg-white/10 backdrop-blur-sm rounded-lg font-light text-white placeholder-white/70 hover:shadow-2xl focus:outline-none transition-all" 
                     placeholder="Enter 6-digit verification code"
                     required 
                 />
             </div>
             <button 
                 type="submit" 
-                className="w-full bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 text-white py-2 md:py-3 lg:py-3 xl:py-4 rounded-lg font-medium text-sm md:text-base lg:text-base xl:text-lg hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 mb-4"
+                className="w-full bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 text-white rounded-lg font-medium hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 mb-4"
             >
                 Verify Code
             </button>
@@ -398,20 +398,20 @@ const Login = ({ setIsLoggedIn, setUserRole }) => {
 
     // Renders the forgot password form
     const renderForgotPasswordForm = () => (
-        <form onSubmit={handleForgotPasswordSubmit} className="w-full max-w-sm">
-            <div className="mb-6">
+        <form onSubmit={handleForgotPasswordSubmit} className="w-full responsive-form">
+            <div className="mb-6 form-spacing">
                 <input 
                     type="email" 
                     value={email} 
                     onChange={(e) => setEmail(e.target.value)} 
-                    className="w-full px-4 py-3 md:px-4 md:py-3 lg:px-4 lg:py-3 xl:px-5 xl:py-4 bg-white/10 backdrop-blur-sm rounded-lg font-light text-white placeholder-white/70 hover:shadow-2xl focus:outline-none transition-all text-sm md:text-base lg:text-base xl:text-lg" 
+                    className="w-full bg-white/10 backdrop-blur-sm rounded-lg font-light text-white placeholder-white/70 hover:shadow-2xl focus:outline-none transition-all" 
                     placeholder="Enter your email to get a reset code"
                     required 
                 />
             </div>
             <button 
                 type="submit" 
-                className="w-full bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 text-white py-2 md:py-3 lg:py-3 xl:py-4 rounded-lg font-medium text-sm md:text-base lg:text-base xl:text-lg hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 mb-4"
+                className="w-full bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 text-white rounded-lg font-medium hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 mb-4"
             >
                 Send Reset Code
             </button>
@@ -427,20 +427,20 @@ const Login = ({ setIsLoggedIn, setUserRole }) => {
 
     // Renders the reset code input form
     const renderResetCodeForm = () => (
-        <form onSubmit={handleResetCodeSubmit} className="w-full max-w-sm">
-            <div className="mb-6">
+        <form onSubmit={handleResetCodeSubmit} className="w-full responsive-form">
+            <div className="mb-6 form-spacing">
                 <input 
                     type="text" 
                     value={resetCode} 
                     onChange={(e) => setResetCode(e.target.value)} 
-                    className="w-full px-4 py-3 md:px-4 md:py-3 lg:px-4 lg:py-3 xl:px-5 xl:py-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition-all text-sm md:text-base lg:text-base xl:text-lg" 
+                    className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition-all" 
                     placeholder="Enter 6-digit reset code"
                     required 
                 />
             </div>
             <button 
                 type="submit" 
-                className="w-full bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 text-white py-2 md:py-3 lg:py-3 xl:py-4 rounded-lg font-medium text-sm md:text-base lg:text-base xl:text-lg hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 mb-4"
+                className="w-full bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 text-white rounded-lg font-medium hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 mb-4"
             >
                 Verify Code
             </button>
@@ -465,30 +465,30 @@ const Login = ({ setIsLoggedIn, setUserRole }) => {
 
     // Renders the new password form
     const renderNewPasswordForm = () => (
-        <form onSubmit={handleNewPasswordSubmit} className="w-full max-w-sm">
-            <div className="mb-6">
+        <form onSubmit={handleNewPasswordSubmit} className="w-full responsive-form">
+            <div className="mb-6 form-spacing">
                 <input 
                     type="password" 
                     value={newPassword} 
                     onChange={(e) => setNewPassword(e.target.value)} 
-                    className="w-full px-4 py-3 md:px-4 md:py-3 lg:px-4 lg:py-3 xl:px-5 xl:py-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition-all text-sm md:text-base lg:text-base xl:text-lg" 
+                    className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition-all" 
                     placeholder="New Password"
                     required 
                 />
             </div>
-            <div className="mb-6">
+            <div className="mb-6 form-spacing">
                 <input 
                     type="password" 
                     value={confirmPassword} 
                     onChange={(e) => setConfirmPassword(e.target.value)} 
-                    className="w-full px-4 py-3 md:px-4 md:py-3 lg:px-4 lg:py-3 xl:px-5 xl:py-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition-all text-sm md:text-base lg:text-base xl:text-lg" 
+                    className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition-all" 
                     placeholder="Confirm Password"
                     required 
                 />
             </div>
             <button 
                 type="submit" 
-                className="w-full bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 text-white py-2 md:py-3 lg:py-3 xl:py-4 rounded-lg font-medium text-sm md:text-base lg:text-base xl:text-lg hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 mb-4"
+                className="w-full bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 text-white rounded-lg font-medium hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 mb-4"
             >
                 Reset Password
             </button>
