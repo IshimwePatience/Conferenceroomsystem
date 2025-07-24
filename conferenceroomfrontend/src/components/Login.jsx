@@ -245,9 +245,9 @@ const Login = ({ setIsLoggedIn, setUserRole }) => {
                         type="checkbox" 
                         checked={rememberMe} 
                         onChange={(e) => setRememberMe(e.target.checked)} 
-                        className="mr-1 md:mr-1 rounded w-3 h-3 md:w-3 md:h-3" 
+                        className="mr-1 md:mr-1 rounded w-3 h-3 md:w-2 md:h-2" 
                     />
-                    Remember Me
+                    <span className="md:text-xs">Remember Me</span>
                 </label>
                 <button 
                     type="button" 
@@ -265,9 +265,9 @@ const Login = ({ setIsLoggedIn, setUserRole }) => {
                 Sign in
             </button>
             
-            <div className="flex items-center justify-center mb-3 md:mb-2">
+            <div className="flex items-center justify-center mb-3 md:mb-1">
                 <div className="border-t border-white/20 flex-grow"></div>
-                <span className="px-3 md:px-2 text-white/60 text-sm md:text-xs">Or continue with</span>
+                <span className="px-3 md:px-1 text-white/60 text-sm md:text-xs">Or continue with</span>
                 <div className="border-t border-white/20 flex-grow"></div>
             </div>
             
@@ -427,39 +427,54 @@ const Login = ({ setIsLoggedIn, setUserRole }) => {
 
     return (
         <div className="min-h-screen w-full flex flex-col lg:flex-row relative overflow-hidden bg-black">
-            {/* Background Space Elements - Simple responsive sizing */}
+            {/* Background Space Elements - Fixed for all screen sizes */}
             <div className="absolute inset-0 overflow-hidden">
-                <div className="absolute -top-10 -left-10 w-72 h-72 md:w-96 md:h-96 bg-gradient-to-br from-cyan-400/30 to-blue-600/30 rounded-full blur-3xl"></div>
-                <div className="absolute top-1/3 -right-16 w-60 h-60 md:w-80 md:h-80 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-full blur-2xl"></div>
-                <div className="absolute bottom-20 left-1/4 w-24 h-24 md:w-32 md:h-32 bg-gradient-to-br from-orange-400/40 to-red-500/40 rounded-full blur-xl"></div>
+                {/* Large Planet - Properly scaled for all screens */}
+                <div className="absolute -top-10 -left-10 w-60 h-60 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 xl:w-[28rem] xl:h-[28rem] 2xl:w-[32rem] 2xl:h-[32rem] bg-gradient-to-br from-cyan-400/30 to-blue-600/30 rounded-full blur-3xl"></div>
                 
-                {/* Stars */}
-                <div className="absolute top-1/4 left-1/3 w-1 h-1 md:w-2 md:h-2 bg-white rounded-full animate-pulse"></div>
-                <div className="absolute top-1/2 left-1/4 w-0.5 h-0.5 md:w-1 md:h-1 bg-cyan-300 rounded-full animate-pulse"></div>
-                <div className="absolute top-3/4 right-1/3 w-1 h-1 md:w-1.5 md:h-1.5 bg-purple-300 rounded-full animate-pulse"></div>
-                <div className="absolute top-1/6 right-1/4 w-0.5 h-0.5 md:w-1 md:h-1 bg-pink-300 rounded-full animate-pulse"></div>
-                <div className="absolute bottom-1/3 left-1/6 w-1 h-1 md:w-2 md:h-2 bg-blue-300 rounded-full animate-pulse"></div>
+                {/* Medium Planet - Properly scaled */}
+                <div className="absolute top-1/3 -right-16 w-48 h-48 sm:w-60 sm:h-60 md:w-72 md:h-72 lg:w-80 lg:h-80 xl:w-96 xl:h-96 2xl:w-[28rem] 2xl:h-[28rem] bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-full blur-2xl"></div>
                 
-                {/* Shooting Stars */}
-                <div className="absolute top-20 right-20 w-16 h-0.5 md:w-20 md:h-0.5 bg-gradient-to-r from-transparent via-white to-transparent transform rotate-45 animate-pulse"></div>
-                <div className="absolute bottom-40 left-40 w-12 h-0.5 md:w-16 md:h-0.5 bg-gradient-to-r from-transparent via-cyan-300 to-transparent transform -rotate-12 animate-pulse"></div>
+                {/* Small Planet - Properly scaled */}
+                <div className="absolute bottom-20 left-1/4 w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 xl:w-40 xl:h-40 2xl:w-48 2xl:h-48 bg-gradient-to-br from-orange-400/40 to-red-500/40 rounded-full blur-xl"></div>
+                
+                {/* Stars - More visible and properly scaled */}
+                <div className="absolute top-1/4 left-1/3 w-1 h-1 md:w-1.5 md:h-1.5 lg:w-2 lg:h-2 xl:w-2.5 xl:h-2.5 2xl:w-3 2xl:h-3 bg-white rounded-full animate-pulse shadow-white shadow-sm"></div>
+                <div className="absolute top-1/2 left-1/4 w-0.5 h-0.5 md:w-1 md:h-1 lg:w-1.5 lg:h-1.5 xl:w-2 xl:h-2 2xl:w-2.5 2xl:h-2.5 bg-cyan-300 rounded-full animate-pulse shadow-cyan-300 shadow-sm"></div>
+                <div className="absolute top-3/4 right-1/3 w-1 h-1 md:w-1.5 md:h-1.5 lg:w-2 lg:h-2 xl:w-2.5 xl:h-2.5 2xl:w-3 2xl:h-3 bg-purple-300 rounded-full animate-pulse shadow-purple-300 shadow-sm"></div>
+                <div className="absolute top-1/6 right-1/4 w-0.5 h-0.5 md:w-1 md:h-1 lg:w-1.5 lg:h-1.5 xl:w-2 xl:h-2 2xl:w-2.5 2xl:h-2.5 bg-pink-300 rounded-full animate-pulse shadow-pink-300 shadow-sm"></div>
+                <div className="absolute bottom-1/3 left-1/6 w-1 h-1 md:w-1.5 md:h-1.5 lg:w-2 lg:h-2 xl:w-2.5 xl:h-2.5 2xl:w-3 2xl:h-3 bg-blue-300 rounded-full animate-pulse shadow-blue-300 shadow-sm"></div>
+                
+                {/* Additional stars for large screens */}
+                <div className="absolute top-1/5 right-1/2 w-0.5 h-0.5 lg:w-1 lg:h-1 xl:w-1.5 xl:h-1.5 2xl:w-2 2xl:h-2 bg-yellow-300 rounded-full animate-pulse shadow-yellow-300 shadow-sm"></div>
+                <div className="absolute bottom-1/5 right-1/5 w-1 h-1 lg:w-1.5 lg:h-1.5 xl:w-2 xl:h-2 2xl:w-2.5 2xl:h-2.5 bg-indigo-300 rounded-full animate-pulse shadow-indigo-300 shadow-sm"></div>
+                <div className="absolute top-2/3 left-1/5 w-0.5 h-0.5 lg:w-1 lg:h-1 xl:w-1.5 xl:h-1.5 2xl:w-2 2xl:h-2 bg-green-300 rounded-full animate-pulse shadow-green-300 shadow-sm"></div>
+                
+                {/* Shooting Stars - Enhanced visibility */}
+                <div className="absolute top-20 right-20 w-12 h-0.5 sm:w-16 sm:h-0.5 md:w-20 md:h-0.5 lg:w-24 lg:h-0.5 xl:w-28 xl:h-0.5 2xl:w-32 2xl:h-0.5 bg-gradient-to-r from-transparent via-white to-transparent transform rotate-45 animate-pulse opacity-80"></div>
+                <div className="absolute bottom-40 left-40 w-10 h-0.5 sm:w-12 sm:h-0.5 md:w-16 md:h-0.5 lg:w-20 lg:h-0.5 xl:w-24 xl:h-0.5 2xl:w-28 2xl:h-0.5 bg-gradient-to-r from-transparent via-cyan-300 to-transparent transform -rotate-12 animate-pulse opacity-80"></div>
+                <div className="absolute top-1/2 right-1/6 w-8 h-0.5 lg:w-16 lg:h-0.5 xl:w-20 xl:h-0.5 2xl:w-24 2xl:h-0.5 bg-gradient-to-r from-transparent via-purple-300 to-transparent transform rotate-12 animate-pulse opacity-60"></div>
+                
+                {/* Nebula effects for large screens */}
+                <div className="absolute top-10 left-1/2 w-40 h-40 lg:w-60 lg:h-60 xl:w-80 xl:h-80 2xl:w-96 2xl:h-96 bg-gradient-to-br from-purple-400/10 via-pink-400/5 to-transparent rounded-full blur-3xl opacity-50"></div>
+                <div className="absolute bottom-10 right-1/3 w-32 h-32 lg:w-48 lg:h-48 xl:w-64 xl:h-64 2xl:w-80 2xl:h-80 bg-gradient-to-br from-cyan-400/10 via-blue-400/5 to-transparent rounded-full blur-3xl opacity-40"></div>
             </div>
 
             {/* Left Side Content */}
-            <div className="flex-1 flex flex-col justify-center items-start px-6 py-6 md:px-4 md:py-4 sm:px-8 lg:px-12 lg:py-16 relative bg-cover bg-center" style={{ backgroundImage: `url(${meetingImg})` }}>
+            <div className="flex-1 flex flex-col justify-center items-start px-6 py-6 md:px-2 md:py-2 sm:px-8 lg:px-12 lg:py-16 relative bg-cover bg-center" style={{ backgroundImage: `url(${meetingImg})` }}>
                 <div className="absolute inset-0 bg-black/50 z-0"></div>
                 <div className="relative z-10 w-full flex flex-col">
                     {/* Logo */}
-                    <div className="flex items-center space-x-3 mb-6 md:mb-4 sm:mb-16">
-                        <div className="w-8 h-8 md:w-7 md:h-7 lg:w-10 lg:h-10 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-lg flex items-center justify-center">
+                    <div className="flex items-center space-x-3 mb-6 md:mb-3 sm:mb-16">
+                        <div className="w-8 h-8 md:w-6 md:h-6 lg:w-10 lg:h-10 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-lg flex items-center justify-center">
                             <span className="text-white font-bold text-sm md:text-xs lg:text-base">C</span>
                         </div>
-                        <span className="text-white text-xl md:text-lg lg:text-2xl font-semibold">ConferenceRoomBooking</span>
+                        <span className="text-white text-xl md:text-sm lg:text-2xl font-semibold">ConferenceRoomBooking</span>
                     </div>
                     
                     {/* Heading */}
                     <div className="max-w-lg">
-                        <h1 className="text-2xl sm:text-3xl md:text-2xl lg:text-4xl xl:text-5xl font-bold text-white mb-4 md:mb-2 leading-tight">
+                        <h1 className="text-2xl sm:text-3xl md:text-xl lg:text-4xl xl:text-5xl font-bold text-white mb-4 md:mb-2 leading-tight">
                             Sign in to your
                             <br />
                             <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">
@@ -471,17 +486,17 @@ const Login = ({ setIsLoggedIn, setUserRole }) => {
             </div>
 
             {/* Right Side Form */}
-            <div className="flex-1 flex items-center justify-center relative z-10 px-6 py-6 md:px-3 md:py-3">
+            <div className="flex-1 flex items-center justify-center relative z-10 px-6 py-6 md:px-2 md:py-2">
                 <div className="w-full max-w-md">
-                    <div className="text-center mb-6 md:mb-4">
-                        <h2 className="text-2xl md:text-xl lg:text-2xl font-bold text-white mb-2 md:mb-1">
+                    <div className="text-center mb-6 md:mb-3">
+                        <h2 className="text-2xl md:text-lg lg:text-2xl font-bold text-white mb-2 md:mb-1">
                             {currentView === 'LOGIN' && 'SIGN IN'}
                             {currentView === '2FA' && 'VERIFY CODE'}
                             {currentView === 'FORGOT_PASSWORD' && 'RESET PASSWORD'}
                             {currentView === 'RESET_CODE' && 'ENTER RESET CODE'}
                             {currentView === 'NEW_PASSWORD' && 'SET NEW PASSWORD'}
                         </h2>
-                        <p className="text-white/70 md:text-sm lg:text-base">
+                        <p className="text-white/70 text-base md:text-xs lg:text-base">
                             {currentView === 'LOGIN' && 'Sign in with email address'}
                             {currentView === '2FA' && 'Enter your verification code'}
                             {currentView === 'FORGOT_PASSWORD' && 'Enter your email for reset link'}
@@ -511,7 +526,7 @@ const Login = ({ setIsLoggedIn, setUserRole }) => {
                     </div>
 
                     {/* Terms and Conditions */}
-                    <div className="text-center mt-6 md:mt-3">
+                    <div className="text-center mt-6 md:mt-2">
                         <p className="text-xs md:text-xs text-white/50">
                             By signing up with our <span className="text-cyan-400">Terms and Conditions</span>
                         </p>

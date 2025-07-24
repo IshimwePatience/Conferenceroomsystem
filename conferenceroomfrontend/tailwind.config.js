@@ -88,10 +88,10 @@ export default {
           margin: '0 auto',
           padding: theme('spacing.6'),
           
-          // Tablet and small laptop (md breakpoint = 768px+)
+          // Tablet and small laptop (md breakpoint = 768px+) - EVEN MORE COMPACT
           '@media (min-width: 768px)': {
-            maxWidth: '18rem', // Smaller container
-            padding: theme('spacing.3'), // Tighter padding
+            maxWidth: '16rem', // Even smaller container
+            padding: theme('spacing.2'), // Even tighter padding
           },
           
           // Desktop and your 1920×1080 @ 150% display (lg breakpoint = 1024px+)
@@ -121,10 +121,10 @@ export default {
           borderRadius: theme('borderRadius.lg'),
           transition: 'all 0.3s ease',
           
-          // Tablet and small laptop (md breakpoint = 768px+) - COMPACT
+          // Tablet and small laptop (md breakpoint = 768px+) - EVEN MORE COMPACT
           '@media (min-width: 768px)': {
-            padding: '0.375rem 0.5rem', // Very compact
-            fontSize: '0.875rem', // Smaller text
+            padding: '0.25rem 0.375rem', // Even tighter padding
+            fontSize: '0.8rem', // Even smaller text
             borderRadius: theme('borderRadius.md'),
           },
           
@@ -159,10 +159,10 @@ export default {
           cursor: 'pointer',
           transition: 'all 0.3s ease',
           
-          // Tablet and small laptop (md breakpoint = 768px+) - COMPACT
+          // Tablet and small laptop (md breakpoint = 768px+) - EVEN MORE COMPACT
           '@media (min-width: 768px)': {
-            padding: '0.375rem 0.5rem', // Very compact
-            fontSize: '0.875rem', // Smaller text
+            padding: '0.25rem 0.375rem', // Even tighter padding
+            fontSize: '0.8rem', // Even smaller text
             borderRadius: theme('borderRadius.md'),
           },
           
