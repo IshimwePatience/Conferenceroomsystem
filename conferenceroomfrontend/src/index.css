@@ -2,181 +2,35 @@
 @tailwind components;
 @tailwind utilities;
 
-/* CSS Custom Properties for Responsive Scaling */
-:root {
-  /* Default sizes for mobile/small screens */
-  --form-input-px: 1rem;
-  --form-input-py: 0.5rem;
-  --form-button-py: 0.5rem;
-  --form-text-size: 0.875rem;
-  --form-button-text: 0.875rem;
-  --form-spacing: 1rem;
-  --form-container-width: 20rem;
-}
+/* 
+Most responsive design is now handled by Tailwind.
+This file only contains essential overrides and browser-specific fixes.
+*/
 
-/* Very small screens - further reduce sizes */
-@media (max-width: 480px) {
-  :root {
-    --form-input-px: 0.5rem;
-    --form-input-py: 0.35rem;
-    --form-button-py: 0.35rem;
-    --form-text-size: 0.75rem;
-    --form-button-text: 0.75rem;
-    --form-spacing: 0.7rem;
-    --form-container-width: 16rem;
-  }
-
-  .responsive-form input,
-  .responsive-form button,
-  .responsive-form select,
-  .responsive-form textarea {
-    font-size: var(--form-text-size);
-    padding: var(--form-input-py) var(--form-input-px);
-    min-height: 2.3rem;
-  }
-
-  .responsive-form {
-    max-width: min(95vw, var(--form-container-width));
-  }
-
-  .custom-container, .max-w-md, .max-w-sm {
-    max-width: 16rem;
-  }
-
-  h1 { font-size: 1.3rem; }
-  h2 { font-size: 1.1rem; }
-}
-
-/* Smaller screens - reduce sizes */
-@media (max-width: 640px) and (min-width: 481px) {
-  :root {
-    --form-input-px: 0.6rem;
-    --form-input-py: 0.4rem;
-    --form-button-py: 0.4rem;
-    --form-text-size: 0.8rem;
-    --form-button-text: 0.8rem;
-    --form-spacing: 0.8rem;
-    --form-container-width: 18rem;
-  }
-
-  .responsive-form input,
-  .responsive-form button,
-  .responsive-form select,
-  .responsive-form textarea {
-    font-size: var(--form-text-size);
-    padding: var(--form-input-py) var(--form-input-px);
-    min-height: 2.5rem;
-  }
-
-  .custom-container, .max-w-md, .max-w-sm {
-    max-width: 18rem;
-  }
-
-  h1 { font-size: 1.5rem; }
-  h2 { font-size: 1.25rem; }
-}
-
-/* Small laptops - reduce sizes */
-@media (min-width: 768px) and (max-width: 900px) {
-  :root {
-    --form-input-px: 0.75rem;
-    --form-input-py: 0.5rem;
-    --form-button-py: 0.625rem;
-    --form-text-size: 0.875rem;
-    --form-button-text: 0.875rem;
-    --form-spacing: 1rem;
-    --form-container-width: 20rem;
-  }
-
-  .responsive-form input,
-  .responsive-form button,
-  .responsive-form select,
-  .responsive-form textarea {
-    font-size: var(--form-text-size);
-    padding: var(--form-input-py) var(--form-input-px);
-  }
-
-  .custom-container, .max-w-md, .max-w-sm {
-    max-width: 20rem;
-  }
-
-  h1 { font-size: 1.875rem; }
-  h2 { font-size: 1.5rem; }
-  h3 { font-size: 1.25rem; }
-}
-
-/* Medium laptops - maintain sizes */
-@media (min-width: 901px) and (max-width: 1023px) {
-  :root {
-    --form-input-px: 0.75rem;
-    --form-input-py: 0.5rem;
-    --form-button-py: 0.625rem;
-    --form-text-size: 0.875rem;
-    --form-button-text: 0.875rem;
-    --form-spacing: 1rem;
-    --form-container-width: 20rem;
-  }
-
-  .responsive-form input,
-  .responsive-form button,
-  .responsive-form select,
-  .responsive-form textarea {
-    font-size: var(--form-text-size);
-    padding: var(--form-input-py) var(--form-input-px);
-  }
-
-  .custom-container, .max-w-md, .max-w-sm {
-    max-width: 20rem;
-  }
-
-  h1 { font-size: 1.875rem; }
-  h2 { font-size: 1.5rem; }
-  h3 { font-size: 1.25rem; }
-}
-
-/* Large screens - increase sizes */
-@media (min-width: 1024px) {
-  :root {
-    --form-input-px: 1rem;
-    --form-input-py: 0.75rem;
-    --form-button-py: 0.75rem;
-    --form-text-size: 1rem;
-    --form-button-text: 1rem;
-    --form-spacing: 1.5rem;
-    --form-container-width: 24rem;
-  }
-}
-
-/* Extra large screens */
-@media (min-width: 1280px) {
-  :root {
-    --form-input-px: 1.25rem;
-    --form-input-py: 1rem;
-    --form-button-py: 1rem;
-    --form-text-size: 1.125rem;
-    --form-button-text: 1.125rem;
-    --form-spacing: 1.5rem;
-    --form-container-width: 28rem;
-  }
-}
-
-/* Reset and base styles */
+/* Essential browser resets and fixes */
 * {
   box-sizing: border-box;
+}
+
+html {
+  /* Support for safe areas on mobile devices */
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
 }
 
 body {
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;
   width: 100%;
-  background: #000;
-  overscroll-behavior: none;
+  background: #000 !important;
+  overscroll-behavior: none !important;
+  /* Prevent zoom on input focus on iOS */
+  -webkit-text-size-adjust: 100%;
 }
 
 #root {
@@ -184,9 +38,10 @@ body {
   width: 100%;
   display: flex;
   flex-direction: column;
+  background: #000 !important;
 }
 
-/* Hide scrollbars for all elements */
+/* Hide scrollbars for all elements while maintaining functionality */
 *::-webkit-scrollbar {
   display: none;
 }
@@ -196,54 +51,88 @@ body {
   scrollbar-width: none;
 }
 
-html, body, #root {
-  background: #000;
-  overscroll-behavior: none;
-}
-
-/* Autofill styles */
+/* Improved autofill styles for better cross-browser compatibility */
 input:-webkit-autofill,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:hover,
-input:-webkit-autofill:active,
-input:-moz-autofill {
-  box-shadow: 0 0 0 1000px rgba(30,41,59,0.2) inset !important;
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px rgba(30,41,59,0.2) inset !important;
   -webkit-text-fill-color: #fff !important;
+  /* Longer transition to prevent flashing */
   transition: background-color 5000s ease-in-out 0s;
 }
 
-/* Global Form Styling - Automatically applies to all forms */
-.responsive-form {
-  max-width: min(var(--form-container-width), 95vw);
+/* High DPI display optimizations */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  /* Sharper borders on high-DPI displays */
+  .border, [class*="border-"] {
+    border-width: 0.5px;
+  }
+  
+  /* Better font rendering on high-DPI displays */
+  body, input, button, textarea, select {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 }
 
-.responsive-form input[type="email"],
-.responsive-form input[type="password"],
-.responsive-form input[type="text"] {
-  padding: var(--form-input-py) var(--form-input-px);
-  font-size: var(--form-text-size);
+/* Enhanced focus indicators for accessibility */
+*:focus-visible {
+  outline: 2px solid #06b6d4;
+  outline-offset: 2px;
 }
 
-.responsive-form button {
-  padding: var(--form-button-py) var(--form-input-px);
-  font-size: var(--form-button-text);
+/* Remove focus outline for mouse users */
+*:focus:not(:focus-visible) {
+  outline: none;
 }
 
-.responsive-form .form-spacing {
-  margin-bottom: var(--form-spacing);
+/* Prevent horizontal scroll on small devices */
+@media (max-width: 640px) {
+  body {
+    overflow-x: hidden;
+  }
 }
 
-/* Auto-apply to common form patterns */
-form input[type="email"],
-form input[type="password"],
-form input[type="text"] {
-  font-size: var(--form-text-size);
+/* iOS specific fixes */
+@supports (-webkit-touch-callout: none) {
+  /* Fix for iOS viewport height issues */
+  .min-h-screen-safe {
+    min-height: -webkit-fill-available;
+  }
+  
+  /* Prevent zoom on input focus */
+  input[type="email"],
+  input[type="password"],
+  input[type="text"],
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
 }
 
-/* Responsive container */
-.app-container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 1rem;
+/* Android specific fixes */
+@media screen and (max-width: 640px) {
+  /* Prevent automatic zoom on form inputs */
+  input[type="email"],
+  input[type="password"],
+  input[type="text"] {
+    font-size: 16px !important;
+  }
+}
+
+/* Print styles */
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  
+  .bg-black, .bg-gradient-to-r {
+    background: white !important;
+  }
+  
+  .text-white {
+    color: black !important;
+  }
 }
