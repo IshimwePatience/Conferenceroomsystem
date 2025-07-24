@@ -2,27 +2,37 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Reset and base styles */
+* {
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
+  padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  margin: 0;
-  place-items: center;
-  display: flex;
-  min-width: 320vh;
-  min-height: 100px;
+  min-height: 100vh; /* Full viewport height */
+  width: 100%; /* Full width */
+  background: #000 !important;
+  overscroll-behavior: none !important;
 }
 
-
+#root {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
 
 /* Hide scrollbars for all elements */
 *::-webkit-scrollbar {
   display: none;
 }
+
 * {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;     /* Firefox */
@@ -33,6 +43,7 @@ html, body, #root {
   overscroll-behavior: none !important;
 }
 
+/* Autofill styles */
 input:-webkit-autofill,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:hover,
@@ -40,4 +51,12 @@ input:-webkit-autofill:active {
   -webkit-box-shadow: 0 0 0 1000px rgba(30,41,59,0.2) inset !important;
   -webkit-text-fill-color: #fff !important;
   transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Responsive container */
+.app-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
 }
