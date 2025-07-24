@@ -135,10 +135,11 @@ export default {
             borderRadius: theme('borderRadius.lg'),
           },
           
-          // Your 1920×1080 @ 150% display (1200px+) - LARGER
+          // Your 1920×1080 @ 150% display (1200px+) - MUCH SMALLER NOW
           '@media (min-width: 1200px)': {
-            padding: `${theme('spacing.r-4')} ${theme('spacing.r-5')}`,
-            fontSize: theme('fontSize.responsive-base[0]'),
+            padding: '0.5rem 0.75rem', // Smaller padding
+            fontSize: '0.9rem', // Smaller text (was responsive-base)
+            borderRadius: theme('borderRadius.md'),
           },
           
           // Large screens
@@ -173,10 +174,11 @@ export default {
             borderRadius: theme('borderRadius.lg'),
           },
           
-          // Your 1920×1080 @ 150% display (1200px+) - LARGER
+          // Your 1920×1080 @ 150% display (1200px+) - MUCH SMALLER NOW
           '@media (min-width: 1200px)': {
-            padding: `${theme('spacing.r-4')} ${theme('spacing.r-5')}`,
-            fontSize: theme('fontSize.responsive-base[0]'),
+            padding: '0.5rem 0.75rem', // Smaller padding
+            fontSize: '0.9rem', // Smaller text (was responsive-base)
+            borderRadius: theme('borderRadius.md'),
           },
           
           // Large screens
