@@ -286,76 +286,64 @@ const Login = ({ setIsLoggedIn, setUserRole }) => {
 
     // Renders the main login form
     const renderLoginForm = () => (
-        <form onSubmit={handleLoginSubmit} className="w-full max-w-[clamp(20rem,90%,28rem)]">
-            <div className="mb-[2vh]">
+        <form onSubmit={handleLoginSubmit} className="w-full max-w-sm">
+            <div className="mb-6">
                 <input 
                     type="email" 
                     value={email} 
                     onChange={(e) => setEmail(e.target.value)} 
-                    className="w-full px-[1.5vw] py-[1.5vh] lg:px-[1vw] lg:py-[1.2vh] bg-white/10 backdrop-blur-sm rounded-lg font-light text-white placeholder-white/70 hover:shadow-2xl focus:outline-none transition-all text-[clamp(0.875rem,2vw,1.125rem)]" 
+                    className="w-full px-4 py-2 md:px-4 md:py-3 lg:px-4 lg:py-3 xl:px-5 xl:py-4 bg-white/10 backdrop-blur-sm rounded-lg font-light text-white placeholder-white/70 hover:shadow-2xl focus:outline-none transition-all text-sm md:text-base lg:text-base xl:text-lg" 
                     placeholder="Enter email address"
                     required 
-                    style={{
-                        minHeight: 'clamp(3rem, 6vh, 4rem)'
-                    }}
                 />
             </div>
-            <div className="mb-[2vh]">
+            <div className="mb-4">
                 <input 
                     type="password" 
                     value={password} 
                     onChange={(e) => setPassword(e.target.value)} 
-                    className="w-full px-[1.5vw] py-[1.5vh] lg:px-[1vw] lg:py-[1.2vh] bg-white/10 backdrop-blur-sm rounded-lg font-light text-white placeholder-white/70 hover:shadow-2xl focus:outline-none transition-all text-[clamp(0.875rem,2vw,1.125rem)]" 
+                    className="w-full px-4 py-2 md:px-4 md:py-3 lg:px-4 lg:py-3 xl:px-5 xl:py-4 bg-white/10 backdrop-blur-sm rounded-lg font-light text-white placeholder-white/70 hover:shadow-2xl focus:outline-none transition-all text-sm md:text-base lg:text-base xl:text-lg" 
                     placeholder="Password"
                     required 
-                    style={{
-                        minHeight: 'clamp(3rem, 6vh, 4rem)'
-                    }}
                 />
             </div>
-            <div className="mb-[3vh] flex items-center justify-between">
-                <label className="flex items-center text-white/80 text-[clamp(0.875rem,1.8vw,1rem)]">
+            <div className="mb-6 flex items-center justify-between">
+                <label className="flex items-center text-white/80 text-sm">
                     <input 
                         type="checkbox" 
                         checked={rememberMe} 
                         onChange={(e) => setRememberMe(e.target.checked)} 
-                        className="mr-[0.5vw] rounded w-[clamp(1rem,2vw,1.25rem)] h-[clamp(1rem,2vw,1.25rem)]" 
+                        className="mr-2 rounded w-4 h-4 md:w-4 md:h-4" 
                     />
                     Remember Me
                 </label>
                 <button 
                     type="button" 
                     onClick={() => setCurrentView('FORGOT_PASSWORD')} 
-                    className="text-[clamp(0.875rem,1.8vw,1rem)] text-cyan-400 hover:text-cyan-300 transition-colors"
+                    className="text-sm text-cyan-400 hover:text-cyan-300 transition-colors"
                 >
                     Forgot Password?
                 </button>
             </div>
             <button 
                 type="submit" 
-                className="w-full bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 text-white py-[1.8vh] rounded-lg font-medium text-[clamp(0.875rem,2vw,1.125rem)] hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 mb-[2vh]"
-                style={{
-                    minHeight: 'clamp(3rem, 6vh, 4rem)'
-                }}
+                className="w-full bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 text-white py-2 md:py-3 lg:py-3 xl:py-4 rounded-lg font-medium text-sm md:text-base lg:text-base xl:text-lg hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 mb-4"
             >
                 Sign in
             </button>
             
-            <div className="flex items-center justify-center mb-[2vh]">
+            <div className="flex items-center justify-center mb-4">
                 <div className="border-t border-white/20 flex-grow"></div>
-                <span className="px-[1vw] text-white/60 text-[clamp(0.875rem,1.8vw,1rem)]">Or continue with</span>
+                <span className="px-4 text-white/60 text-sm">Or continue with</span>
                 <div className="border-t border-white/20 flex-grow"></div>
             </div>
             
             <button 
                 type="button" 
                 onClick={() => handleGoogleLoginClick()} 
-                className="w-full flex items-center justify-center py-[1.5vh] bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg text-white text-[clamp(0.875rem,2vw,1.125rem)] hover:bg-white/20 transition-all duration-300 mb-[3vh]"
-                style={{
-                    minHeight: 'clamp(3rem, 6vh, 4rem)'
-                }}
+                className="w-full flex items-center justify-center py-2 md:py-3 lg:py-3 xl:py-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg text-white text-sm md:text-base lg:text-base xl:text-lg hover:bg-white/20 transition-all duration-300 mb-6"
             >
-                <svg className="w-[clamp(1.25rem,2.5vw,1.5rem)] h-[clamp(1.25rem,2.5vw,1.5rem)] mr-[1vw]" viewBox="0 0 48 48">
+                <svg className="w-5 h-5 mr-3" viewBox="0 0 48 48">
                     <path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12s5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24s8.955,20,20,20s20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"></path>
                     <path fill="#FF3D00" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"></path>
                     <path fill="#4CAF50" d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"></path>
@@ -364,7 +352,7 @@ const Login = ({ setIsLoggedIn, setUserRole }) => {
                 Google
             </button>
             
-            <p className="text-center text-[clamp(0.875rem,1.8vw,1rem)] text-white/60">
+            <p className="text-center text-sm text-white/60">
                 Don't have an account? <a href="/register" className="text-purple-400 hover:text-purple-300 transition-colors">Register here</a>
             </p>
         </form>
@@ -372,41 +360,35 @@ const Login = ({ setIsLoggedIn, setUserRole }) => {
 
     // Renders the 2FA code input form
     const render2FAForm = () => (
-        <form onSubmit={handle2FASubmit} className="w-full max-w-[clamp(20rem,90%,28rem)]">
-            <div className="mb-[3vh]">
+        <form onSubmit={handle2FASubmit} className="w-full max-w-sm">
+            <div className="mb-6">
                 <input 
                     type="text" 
                     value={twoFactorCode} 
                     onChange={(e) => setTwoFactorCode(e.target.value)} 
-                    className="w-full px-[1.5vw] py-[1.8vh] lg:px-[1vw] lg:py-[1.5vh] bg-white/10 backdrop-blur-sm rounded-lg font-light text-white placeholder-white/70 hover:shadow-2xl focus:outline-none transition-all text-[clamp(0.875rem,2vw,1.125rem)]" 
+                    className="w-full px-4 py-3 md:px-4 md:py-3 lg:px-4 lg:py-3 xl:px-5 xl:py-4 bg-white/10 backdrop-blur-sm rounded-lg font-light text-white placeholder-white/70 hover:shadow-2xl focus:outline-none transition-all text-sm md:text-base lg:text-base xl:text-lg" 
                     placeholder="Enter 6-digit verification code"
                     required 
-                    style={{
-                        minHeight: 'clamp(3rem, 6vh, 4rem)'
-                    }}
                 />
             </div>
             <button 
                 type="submit" 
-                className="w-full bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 text-white py-[1.8vh] rounded-lg font-medium text-[clamp(0.875rem,2vw,1.125rem)] hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 mb-[2vh]"
-                style={{
-                    minHeight: 'clamp(3rem, 6vh, 4rem)'
-                }}
+                className="w-full bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 text-white py-2 md:py-3 lg:py-3 xl:py-4 rounded-lg font-medium text-sm md:text-base lg:text-base xl:text-lg hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 mb-4"
             >
                 Verify Code
             </button>
-            <div className="flex flex-col space-y-[1vh]">
+            <div className="flex flex-col space-y-2">
                 <button 
                     type="button" 
                     onClick={handleResend2FACode}
-                    className="w-full text-cyan-400 hover:text-cyan-300 transition-colors text-center text-[clamp(0.875rem,1.8vw,1rem)]"
+                    className="w-full text-cyan-400 hover:text-cyan-300 transition-colors text-center text-sm"
                 >
                     Resend Code
                 </button>
                 <button 
                     type="button" 
                     onClick={() => setCurrentView('LOGIN')} 
-                    className="w-full text-cyan-400 hover:text-cyan-300 transition-colors text-center text-[clamp(0.875rem,1.8vw,1rem)]"
+                    className="w-full text-cyan-400 hover:text-cyan-300 transition-colors text-center text-sm"
                 >
                     Back to Login
                 </button>
@@ -416,33 +398,27 @@ const Login = ({ setIsLoggedIn, setUserRole }) => {
 
     // Renders the forgot password form
     const renderForgotPasswordForm = () => (
-        <form onSubmit={handleForgotPasswordSubmit} className="w-full max-w-[clamp(20rem,90%,28rem)]">
-            <div className="mb-[3vh]">
+        <form onSubmit={handleForgotPasswordSubmit} className="w-full max-w-sm">
+            <div className="mb-6">
                 <input 
                     type="email" 
                     value={email} 
                     onChange={(e) => setEmail(e.target.value)} 
-                    className="w-full px-[1.5vw] py-[1.8vh] lg:px-[1vw] lg:py-[1.5vh] bg-white/10 backdrop-blur-sm rounded-lg font-light text-white placeholder-white/70 hover:shadow-2xl focus:outline-none transition-all text-[clamp(0.875rem,2vw,1.125rem)]" 
+                    className="w-full px-4 py-3 md:px-4 md:py-3 lg:px-4 lg:py-3 xl:px-5 xl:py-4 bg-white/10 backdrop-blur-sm rounded-lg font-light text-white placeholder-white/70 hover:shadow-2xl focus:outline-none transition-all text-sm md:text-base lg:text-base xl:text-lg" 
                     placeholder="Enter your email to get a reset code"
                     required 
-                    style={{
-                        minHeight: 'clamp(3rem, 6vh, 4rem)'
-                    }}
                 />
             </div>
             <button 
                 type="submit" 
-                className="w-full bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 text-white py-[1.8vh] rounded-lg font-medium text-[clamp(0.875rem,2vw,1.125rem)] hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 mb-[2vh]"
-                style={{
-                    minHeight: 'clamp(3rem, 6vh, 4rem)'
-                }}
+                className="w-full bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 text-white py-2 md:py-3 lg:py-3 xl:py-4 rounded-lg font-medium text-sm md:text-base lg:text-base xl:text-lg hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 mb-4"
             >
                 Send Reset Code
             </button>
             <button 
                 type="button" 
                 onClick={() => setCurrentView('LOGIN')} 
-                className="w-full text-cyan-400 hover:text-cyan-300 transition-colors text-center text-[clamp(0.875rem,1.8vw,1rem)]"
+                className="w-full text-cyan-400 hover:text-cyan-300 transition-colors text-center text-sm"
             >
                 Back to Login
             </button>
@@ -451,41 +427,35 @@ const Login = ({ setIsLoggedIn, setUserRole }) => {
 
     // Renders the reset code input form
     const renderResetCodeForm = () => (
-        <form onSubmit={handleResetCodeSubmit} className="w-full max-w-[clamp(20rem,90%,28rem)]">
-            <div className="mb-[3vh]">
+        <form onSubmit={handleResetCodeSubmit} className="w-full max-w-sm">
+            <div className="mb-6">
                 <input 
                     type="text" 
                     value={resetCode} 
                     onChange={(e) => setResetCode(e.target.value)} 
-                    className="w-full px-[1.5vw] py-[1.8vh] lg:px-[1vw] lg:py-[1.5vh] bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition-all text-[clamp(0.875rem,2vw,1.125rem)]" 
+                    className="w-full px-4 py-3 md:px-4 md:py-3 lg:px-4 lg:py-3 xl:px-5 xl:py-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition-all text-sm md:text-base lg:text-base xl:text-lg" 
                     placeholder="Enter 6-digit reset code"
                     required 
-                    style={{
-                        minHeight: 'clamp(3rem, 6vh, 4rem)'
-                    }}
                 />
             </div>
             <button 
                 type="submit" 
-                className="w-full bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 text-white py-[1.8vh] rounded-lg font-medium text-[clamp(0.875rem,2vw,1.125rem)] hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 mb-[2vh]"
-                style={{
-                    minHeight: 'clamp(3rem, 6vh, 4rem)'
-                }}
+                className="w-full bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 text-white py-2 md:py-3 lg:py-3 xl:py-4 rounded-lg font-medium text-sm md:text-base lg:text-base xl:text-lg hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 mb-4"
             >
                 Verify Code
             </button>
-            <div className="flex flex-col space-y-[1vh]">
+            <div className="flex flex-col space-y-2">
                 <button 
                     type="button" 
                     onClick={handleResendCode}
-                    className="w-full text-cyan-400 hover:text-cyan-300 transition-colors text-center text-[clamp(0.875rem,1.8vw,1rem)]"
+                    className="w-full text-cyan-400 hover:text-cyan-300 transition-colors text-center text-sm"
                 >
                     Resend Code
                 </button>
                 <button 
                     type="button" 
                     onClick={() => setCurrentView('LOGIN')} 
-                    className="w-full text-cyan-400 hover:text-cyan-300 transition-colors text-center text-[clamp(0.875rem,1.8vw,1rem)]"
+                    className="w-full text-cyan-400 hover:text-cyan-300 transition-colors text-center text-sm"
                 >
                     Back to Login
                 </button>
@@ -495,46 +465,37 @@ const Login = ({ setIsLoggedIn, setUserRole }) => {
 
     // Renders the new password form
     const renderNewPasswordForm = () => (
-        <form onSubmit={handleNewPasswordSubmit} className="w-full max-w-[clamp(20rem,90%,28rem)]">
-            <div className="mb-[2vh]">
+        <form onSubmit={handleNewPasswordSubmit} className="w-full max-w-sm">
+            <div className="mb-6">
                 <input 
                     type="password" 
                     value={newPassword} 
                     onChange={(e) => setNewPassword(e.target.value)} 
-                    className="w-full px-[1.5vw] py-[1.8vh] lg:px-[1vw] lg:py-[1.5vh] bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition-all text-[clamp(0.875rem,2vw,1.125rem)]" 
+                    className="w-full px-4 py-3 md:px-4 md:py-3 lg:px-4 lg:py-3 xl:px-5 xl:py-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition-all text-sm md:text-base lg:text-base xl:text-lg" 
                     placeholder="New Password"
                     required 
-                    style={{
-                        minHeight: 'clamp(3rem, 6vh, 4rem)'
-                    }}
                 />
             </div>
-            <div className="mb-[3vh]">
+            <div className="mb-6">
                 <input 
                     type="password" 
                     value={confirmPassword} 
                     onChange={(e) => setConfirmPassword(e.target.value)} 
-                    className="w-full px-[1.5vw] py-[1.8vh] lg:px-[1vw] lg:py-[1.5vh] bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition-all text-[clamp(0.875rem,2vw,1.125rem)]" 
+                    className="w-full px-4 py-3 md:px-4 md:py-3 lg:px-4 lg:py-3 xl:px-5 xl:py-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition-all text-sm md:text-base lg:text-base xl:text-lg" 
                     placeholder="Confirm Password"
                     required 
-                    style={{
-                        minHeight: 'clamp(3rem, 6vh, 4rem)'
-                    }}
                 />
             </div>
             <button 
                 type="submit" 
-                className="w-full bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 text-white py-[1.8vh] rounded-lg font-medium text-[clamp(0.875rem,2vw,1.125rem)] hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 mb-[2vh]"
-                style={{
-                    minHeight: 'clamp(3rem, 6vh, 4rem)'
-                }}
+                className="w-full bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 text-white py-2 md:py-3 lg:py-3 xl:py-4 rounded-lg font-medium text-sm md:text-base lg:text-base xl:text-lg hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 mb-4"
             >
                 Reset Password
             </button>
             <button 
                 type="button" 
                 onClick={() => setCurrentView('FORGOT_PASSWORD')} 
-                className="w-full text-cyan-400 hover:text-cyan-300 transition-colors text-center text-[clamp(0.875rem,1.8vw,1rem)]"
+                className="w-full text-cyan-400 hover:text-cyan-300 transition-colors text-center text-sm"
             >
                 Back to Forgot Password
             </button>
@@ -545,42 +506,42 @@ const Login = ({ setIsLoggedIn, setUserRole }) => {
         <div className="min-h-screen w-full flex flex-col lg:flex-row relative overflow-hidden bg-black">
             {/* Background Space Elements */}
             <div className="absolute inset-0 overflow-hidden">
-                {/* Large Planet - responsive size */}
-                <div className="absolute -top-10 -left-10 w-[clamp(16rem,25vw,24rem)] h-[clamp(16rem,25vw,24rem)] bg-gradient-to-br from-cyan-400/30 to-blue-600/30 rounded-full blur-3xl"></div>
+                {/* Large Planet */}
+                <div className="absolute -top-10 -left-10 w-96 h-96 bg-gradient-to-br from-cyan-400/30 to-blue-600/30 rounded-full blur-3xl"></div>
                 
-                {/* Medium Planet - responsive size */}
-                <div className="absolute top-1/3 -right-16 w-[clamp(12rem,20vw,20rem)] h-[clamp(12rem,20vw,20rem)] bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-full blur-2xl"></div>
+                {/* Medium Planet */}
+                <div className="absolute top-1/3 -right-16 w-80 h-80 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-full blur-2xl"></div>
                 
-                {/* Small Planet - responsive size */}
-                <div className="absolute bottom-20 left-1/4 w-[clamp(6rem,8vw,8rem)] h-[clamp(6rem,8vw,8rem)] bg-gradient-to-br from-orange-400/40 to-red-500/40 rounded-full blur-xl"></div>
+                {/* Small Planet */}
+                <div className="absolute bottom-20 left-1/4 w-32 h-32 bg-gradient-to-br from-orange-400/40 to-red-500/40 rounded-full blur-xl"></div>
                 
-                {/* Stars - responsive sizes */}
-                <div className="absolute top-1/4 left-1/3 w-[clamp(0.5rem,0.8vw,0.75rem)] h-[clamp(0.5rem,0.8vw,0.75rem)] bg-white rounded-full animate-pulse"></div>
-                <div className="absolute top-1/2 left-1/4 w-[clamp(0.25rem,0.4vw,0.5rem)] h-[clamp(0.25rem,0.4vw,0.5rem)] bg-cyan-300 rounded-full animate-pulse"></div>
-                <div className="absolute top-3/4 right-1/3 w-[clamp(0.375rem,0.6vw,0.625rem)] h-[clamp(0.375rem,0.6vw,0.625rem)] bg-purple-300 rounded-full animate-pulse"></div>
-                <div className="absolute top-1/6 right-1/4 w-[clamp(0.25rem,0.4vw,0.5rem)] h-[clamp(0.25rem,0.4vw,0.5rem)] bg-pink-300 rounded-full animate-pulse"></div>
-                <div className="absolute bottom-1/3 left-1/6 w-[clamp(0.5rem,0.8vw,0.75rem)] h-[clamp(0.5rem,0.8vw,0.75rem)] bg-blue-300 rounded-full animate-pulse"></div>
+                {/* Stars */}
+                <div className="absolute top-1/4 left-1/3 w-2 h-2 bg-white rounded-full animate-pulse"></div>
+                <div className="absolute top-1/2 left-1/4 w-1 h-1 bg-cyan-300 rounded-full animate-pulse"></div>
+                <div className="absolute top-3/4 right-1/3 w-1.5 h-1.5 bg-purple-300 rounded-full animate-pulse"></div>
+                <div className="absolute top-1/6 right-1/4 w-1 h-1 bg-pink-300 rounded-full animate-pulse"></div>
+                <div className="absolute bottom-1/3 left-1/6 w-2 h-2 bg-blue-300 rounded-full animate-pulse"></div>
                 
-                {/* Shooting Stars - responsive sizes */}
-                <div className="absolute top-20 right-20 w-[clamp(3rem,5vw,5rem)] h-0.5 bg-gradient-to-r from-transparent via-white to-transparent transform rotate-45 animate-pulse"></div>
-                <div className="absolute bottom-40 left-40 w-[clamp(2.5rem,4vw,4rem)] h-0.5 bg-gradient-to-r from-transparent via-cyan-300 to-transparent transform -rotate-12 animate-pulse"></div>
+                {/* Shooting Stars */}
+                <div className="absolute top-20 right-20 w-20 h-0.5 bg-gradient-to-r from-transparent via-white to-transparent transform rotate-45 animate-pulse"></div>
+                <div className="absolute bottom-40 left-40 w-16 h-0.5 bg-gradient-to-r from-transparent via-cyan-300 to-transparent transform -rotate-12 animate-pulse"></div>
             </div>
 
             {/* Left Side Content */}
-            <div className="flex-1 flex flex-col justify-center items-start px-[1.5vw] py-[2vh] sm:px-[2vw] md:px-[3vw] lg:p-[4vw] relative bg-cover bg-center lg:rounded-b-none" style={{ backgroundImage: `url(${meetingImg})` }}>
+            <div className="flex-1 flex flex-col justify-center items-start px-3 py-8 sm:px-8 md:px-12 lg:p-16 relative bg-cover bg-center lg:rounded-b-none" style={{ backgroundImage: `url(${meetingImg})` }}>
                 {/* Overlay for readability */}
                 <div className="absolute inset-0 bg-black/50 z-0"></div>
                 <div className="relative z-10 w-full flex flex-col">
                     {/* Logo - responsive sizing */}
-                    <div className="flex items-center space-x-[1vw] mb-[4vh] sm:mb-[6vh] mt-[1vh] sm:mt-0">
-                        <div className="w-[clamp(2rem,4vw,3rem)] h-[clamp(2rem,4vw,3rem)] bg-gradient-to-r from-cyan-400 to-purple-500 rounded-lg flex items-center justify-center">
-                            <span className="text-white font-bold text-[clamp(0.875rem,1.5vw,1.125rem)]"> C </span>
+                    <div className="flex items-center space-x-3 mb-8 sm:mb-16 mt-2 sm:mt-0">
+                        <div className="w-8 h-8 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-lg flex items-center justify-center">
+                            <span className="text-white font-bold text-sm"> C </span>
                         </div>
-                        <span className="text-white text-[clamp(1.25rem,2.5vw,1.75rem)] font-semibold">ConferenceRoomBooking</span>
+                        <span className="text-white text-xl font-semibold">ConferenceRoomBooking</span>
                     </div>
                     {/* Heading - responsive typography */}
-                    <div className="max-w-[clamp(20rem,50vw,32rem)]">
-                        <h1 className="text-[clamp(1.5rem,4vw,3.5rem)] font-bold text-white mb-[2vh] leading-tight">
+                    <div className="max-w-lg">
+                        <h1 className="text-2xl sm:text-2xl md:text-3xl lg:text-5xl font-bold text-white mb-4 leading-tight">
                             Sign in to your
                             <br />
                             <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">
@@ -592,17 +553,17 @@ const Login = ({ setIsLoggedIn, setUserRole }) => {
             </div>
 
             {/* Right Side Form */}
-            <div className="flex-1 flex items-center justify-center relative z-10 p-[2vw]">
-                <div className="container w-full max-w-[clamp(20rem,90%,30rem)]">
-                    <div className="text-center mb-[4vh]">
-                        <h2 className="text-[clamp(1.5rem,3vw,2rem)] font-bold text-white mb-[1vh]">
+            <div className="flex-1 flex items-center justify-center relative z-10">
+                <div className="container w-full max-w-md">
+                    <div className="text-center mb-8">
+                        <h2 className="text-2xl font-bold text-white mb-2">
                             {currentView === 'LOGIN' && 'SIGN IN'}
                             {currentView === '2FA' && 'VERIFY CODE'}
                             {currentView === 'FORGOT_PASSWORD' && 'RESET PASSWORD'}
                             {currentView === 'RESET_CODE' && 'ENTER RESET CODE'}
                             {currentView === 'NEW_PASSWORD' && 'SET NEW PASSWORD'}
                         </h2>
-                        <p className="text-white/70 text-[clamp(0.875rem,1.8vw,1.125rem)]">
+                        <p className="text-white/70">
                             {currentView === 'LOGIN' && 'Sign in with email address'}
                             {currentView === '2FA' && 'Enter your verification code'}
                             {currentView === 'FORGOT_PASSWORD' && 'Enter your email for reset link'}
@@ -613,12 +574,12 @@ const Login = ({ setIsLoggedIn, setUserRole }) => {
 
                     {/* Error and Success Messages */}
                     {error && (
-                        <div className="mb-[2vh] p-[1.5vh] bg-red-500/20 border border-red-500/50 rounded-lg text-red-200 text-center text-[clamp(0.875rem,1.6vw,1rem)]">
+                        <div className="mb-4 p-3 bg-red-500/20 border border-red-500/50 rounded-lg text-red-200 text-center">
                             {error}
                         </div>
                     )}
                     {message && (
-                        <div className="mb-[2vh] p-[1.5vh] bg-green-500/20 border border-green-500/50 rounded-lg text-green-200 text-center text-[clamp(0.875rem,1.6vw,1rem)]">
+                        <div className="mb-4 p-3 bg-green-500/20 border border-green-500/50 rounded-lg text-green-200 text-center">
                             {message}
                         </div>
                     )}
@@ -632,8 +593,8 @@ const Login = ({ setIsLoggedIn, setUserRole }) => {
                     </div>
 
                     {/* Terms and Conditions */}
-                    <div className="text-center mt-[4vh]">
-                        <p className="text-[clamp(0.75rem,1.4vw,0.875rem)] text-white/50">
+                    <div className="text-center mt-8">
+                        <p className="text-xs text-white/50">
                             By signing up with our <span className="text-cyan-400">Terms and Conditions</span>
                         </p>
                     </div>
