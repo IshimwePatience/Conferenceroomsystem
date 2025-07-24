@@ -112,79 +112,34 @@ export default {
           },
         },
         
-        // Simple responsive input
+        // FLUID responsive input - scales smoothly across all screen sizes
         '.simple-input': {
           width: '100%',
-          padding: `${theme('spacing.3')} ${theme('spacing.4')}`,
-          fontSize: theme('fontSize.base[0]'),
-          lineHeight: theme('fontSize.base[1]'),
-          borderRadius: theme('borderRadius.lg'),
+          padding: 'clamp(0.5rem, 2vw, 1rem) clamp(0.75rem, 3vw, 1.25rem)', // Fluid padding
+          fontSize: 'clamp(0.875rem, 2.5vw, 1.125rem)', // Fluid text size
+          lineHeight: '1.5',
+          borderRadius: 'clamp(0.375rem, 1vw, 0.75rem)', // Fluid border radius
           transition: 'all 0.3s ease',
-          
-          // Tablet and small laptop (md breakpoint = 768px+) - EVEN MORE COMPACT
-          '@media (min-width: 768px)': {
-            padding: '0.25rem 0.375rem', // Even tighter padding
-            fontSize: '0.8rem', // Even smaller text
-            borderRadius: theme('borderRadius.md'),
-          },
-          
-          // Desktop (lg breakpoint = 1024px+) - NORMAL
-          '@media (min-width: 1024px)': {
-            padding: `${theme('spacing.3')} ${theme('spacing.4')}`,
-            fontSize: theme('fontSize.base[0]'),
-            borderRadius: theme('borderRadius.lg'),
-          },
-          
-          // Your 1920×1080 @ 150% display (1200px+) - MUCH SMALLER NOW
-          '@media (min-width: 1200px)': {
-            padding: '0.5rem 0.75rem', // Smaller padding
-            fontSize: '0.9rem', // Smaller text (was responsive-base)
-            borderRadius: theme('borderRadius.md'),
-          },
-          
-          // Large screens
-          '@media (min-width: 1920px)': {
-            padding: `${theme('spacing.r-5')} ${theme('spacing.r-6')}`,
-            fontSize: theme('fontSize.responsive-lg[0]'),
-          },
         },
         
-        // Simple responsive button
+        // FLUID responsive button - scales smoothly across all screen sizes
         '.simple-button': {
           width: '100%',
-          padding: `${theme('spacing.3')} ${theme('spacing.4')}`,
-          fontSize: theme('fontSize.base[0]'),
+          padding: 'clamp(0.5rem, 2vw, 1rem) clamp(0.75rem, 3vw, 1.25rem)', // Fluid padding
+          fontSize: 'clamp(0.875rem, 2.5vw, 1.125rem)', // Fluid text size
           fontWeight: '500',
-          borderRadius: theme('borderRadius.lg'),
+          lineHeight: '1.5',
+          borderRadius: 'clamp(0.375rem, 1vw, 0.75rem)', // Fluid border radius
           border: 'none',
           cursor: 'pointer',
           transition: 'all 0.3s ease',
           
-          // Tablet and small laptop (md breakpoint = 768px+) - EVEN MORE COMPACT
-          '@media (min-width: 768px)': {
-            padding: '0.25rem 0.375rem', // Even tighter padding
-            fontSize: '0.8rem', // Even smaller text
-            borderRadius: theme('borderRadius.md'),
+          '&:hover': {
+            transform: 'translateY(-1px)',
           },
           
-          // Desktop (lg breakpoint = 1024px+) - NORMAL
-          '@media (min-width: 1024px)': {
-            padding: `${theme('spacing.3')} ${theme('spacing.4')}`,
-            fontSize: theme('fontSize.base[0]'),
-            borderRadius: theme('borderRadius.lg'),
-          },
-          
-          // Your 1920×1080 @ 150% display (1200px+) - MUCH SMALLER NOW
-          '@media (min-width: 1200px)': {
-            padding: '0.5rem 0.75rem', // Smaller padding
-            fontSize: '0.9rem', // Smaller text (was responsive-base)
-            borderRadius: theme('borderRadius.md'),
-          },
-          
-          // Large screens
-          '@media (min-width: 1920px)': {
-            padding: `${theme('spacing.r-5')} ${theme('spacing.r-6')}`,
-            fontSize: theme('fontSize.responsive-lg[0]'),
+          '&:active': {
+            transform: 'translateY(0)',
           },
         },
       });
