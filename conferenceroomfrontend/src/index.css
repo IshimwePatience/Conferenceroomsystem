@@ -14,8 +14,70 @@
   --form-container-width: 20rem;
 }
 
-/* Small laptops and up - reduce sizes */
-@media (min-width: 768px) and (max-width: 1023px) {
+/* Very small screens - further reduce sizes */
+@media (max-width: 480px) {
+  :root {
+    --form-input-px: 0.5rem;
+    --form-input-py: 0.35rem;
+    --form-button-py: 0.35rem;
+    --form-text-size: 0.75rem;
+    --form-button-text: 0.75rem;
+    --form-spacing: 0.7rem;
+    --form-container-width: 16rem;
+  }
+
+  .responsive-form input,
+  .responsive-form button,
+  .responsive-form select,
+  .responsive-form textarea {
+    font-size: var(--form-text-size);
+    padding: var(--form-input-py) var(--form-input-px);
+    min-height: 2.3rem;
+  }
+
+  .responsive-form {
+    max-width: min(95vw, var(--form-container-width));
+  }
+
+  .custom-container, .max-w-md, .max-w-sm {
+    max-width: 16rem;
+  }
+
+  h1 { font-size: 1.3rem; }
+  h2 { font-size: 1.1rem; }
+}
+
+/* Smaller screens - reduce sizes */
+@media (max-width: 640px) and (min-width: 481px) {
+  :root {
+    --form-input-px: 0.6rem;
+    --form-input-py: 0.4rem;
+    --form-button-py: 0.4rem;
+    --form-text-size: 0.8rem;
+    --form-button-text: 0.8rem;
+    --form-spacing: 0.8rem;
+    --form-container-width: 18rem;
+  }
+
+  .responsive-form input,
+  .responsive-form button,
+  .responsive-form select,
+  .responsive-form textarea {
+    font-size: var(--form-text-size);
+    padding: var(--form-input-py) var(--form-input-px);
+    min-height: 2.5rem;
+  }
+
+  .custom-container, .max-w-md, .max-w-sm {
+    max-width: 18rem;
+  }
+
+  h1 { font-size: 1.5rem; }
+  h2 { font-size: 1.25rem; }
+}
+
+/* Small laptops - reduce sizes */
+@media (min-width: 768px) and (max-width: 900px) {
   :root {
     --form-input-px: 0.75rem;
     --form-input-py: 0.5rem;
@@ -25,6 +87,51 @@
     --form-spacing: 1rem;
     --form-container-width: 20rem;
   }
+
+  .responsive-form input,
+  .responsive-form button,
+  .responsive-form select,
+  .responsive-form textarea {
+    font-size: var(--form-text-size);
+    padding: var(--form-input-py) var(--form-input-px);
+  }
+
+  .custom-container, .max-w-md, .max-w-sm {
+    max-width: 20rem;
+  }
+
+  h1 { font-size: 1.875rem; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.25rem; }
+}
+
+/* Medium laptops - maintain sizes */
+@media (min-width: 901px) and (max-width: 1023px) {
+  :root {
+    --form-input-px: 0.75rem;
+    --form-input-py: 0.5rem;
+    --form-button-py: 0.625rem;
+    --form-text-size: 0.875rem;
+    --form-button-text: 0.875rem;
+    --form-spacing: 1rem;
+    --form-container-width: 20rem;
+  }
+
+  .responsive-form input,
+  .responsive-form button,
+  .responsive-form select,
+  .responsive-form textarea {
+    font-size: var(--form-text-size);
+    padding: var(--form-input-py) var(--form-input-px);
+  }
+
+  .custom-container, .max-w-md, .max-w-sm {
+    max-width: 20rem;
+  }
+
+  h1 { font-size: 1.875rem; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.25rem; }
 }
 
 /* Large screens - increase sizes */
@@ -53,62 +160,6 @@
   }
 }
 
-/* Smaller screens - reduce sizes */
-@media (max-width: 640px) {
-  :root {
-    --form-input-px: 0.6rem;
-    --form-input-py: 0.4rem;
-    --form-button-py: 0.4rem;
-    --form-text-size: 0.8rem;
-    --form-button-text: 0.8rem;
-    --form-spacing: 0.8rem;
-    --form-container-width: 18rem;
-  }
-
-  input, button, select, textarea {
-    font-size: 0.8rem !important;
-    padding: 0.4rem 0.6rem !important;
-    min-height: 2.5rem !important;
-  }
-
-  .container, .max-w-md, .max-w-sm {
-    max-width: 18rem !important;
-  }
-
-  h1 { font-size: 1.5rem !important; }
-  h2 { font-size: 1.25rem !important; }
-}
-
-/* Very small screens - further reduce sizes */
-@media (max-width: 480px) {
-  :root {
-    --form-input-px: 0.5rem;
-    --form-input-py: 0.35rem;
-    --form-button-py: 0.35rem;
-    --form-text-size: 0.75rem;
-    --form-button-text: 0.75rem;
-    --form-spacing: 0.7rem;
-    --form-container-width: 16rem;
-  }
-
-  input, button, select, textarea {
-    font-size: 0.75rem !important;
-    padding: 0.35rem 0.5rem !important;
-    min-height: 2.3rem !important;
-  }
-
-  .responsive-form {
-    max-width: 95vw !important;
-  }
-
-  .container, .max-w-md, .max-w-sm {
-    max-width: 16rem !important;
-  }
-
-  h1 { font-size: 1.3rem !important; }
-  h2 { font-size: 1.1rem !important; }
-}
-
 /* Reset and base styles */
 * {
   box-sizing: border-box;
@@ -124,8 +175,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;
   width: 100%;
-  background: #000 !important;
-  overscroll-behavior: none !important;
+  background: #000;
+  overscroll-behavior: none;
 }
 
 #root {
@@ -146,35 +197,36 @@ body {
 }
 
 html, body, #root {
-  background: #000 !important;
-  overscroll-behavior: none !important;
+  background: #000;
+  overscroll-behavior: none;
 }
 
 /* Autofill styles */
 input:-webkit-autofill,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:hover,
-input:-webkit-autofill:active {
-  -webkit-box-shadow: 0 0 0 1000px rgba(30,41,59,0.2) inset !important;
+input:-webkit-autofill:active,
+input:-moz-autofill {
+  box-shadow: 0 0 0 1000px rgba(30,41,59,0.2) inset !important;
   -webkit-text-fill-color: #fff !important;
   transition: background-color 5000s ease-in-out 0s;
 }
 
 /* Global Form Styling - Automatically applies to all forms */
 .responsive-form {
-  max-width: var(--form-container-width);
+  max-width: min(var(--form-container-width), 95vw);
 }
 
 .responsive-form input[type="email"],
 .responsive-form input[type="password"],
 .responsive-form input[type="text"] {
-  padding: var(--form-input-py) var(--form-input-px) !important;
-  font-size: var(--form-text-size) !important;
+  padding: var(--form-input-py) var(--form-input-px);
+  font-size: var(--form-text-size);
 }
 
 .responsive-form button {
-  padding: var(--form-button-py) var(--form-input-px) !important;
-  font-size: var(--form-button-text) !important;
+  padding: var(--form-button-py) var(--form-input-px);
+  font-size: var(--form-button-text);
 }
 
 .responsive-form .form-spacing {
@@ -194,31 +246,4 @@ form input[type="text"] {
   max-width: 1200px;
   margin: 0 auto;
   padding: 1rem;
-}
-
-/* Specific fix for small laptop screens */
-@media (min-width: 768px) and (max-width: 1023px) {
-  /* Target common form elements and make them smaller */
-  input, button, select, textarea {
-    font-size: 0.875rem !important;
-    padding: 0.5rem 0.75rem !important;
-  }
-  
-  /* Reduce form container sizes */
-  .container, .max-w-md, .max-w-sm {
-    max-width: 20rem !important;
-  }
-  
-  /* Reduce heading sizes */
-  h1 { font-size: 1.875rem !important; }
-  h2 { font-size: 1.5rem !important; }
-  h3 { font-size: 1.25rem !important; }
-}
-
-/* Additional safety net for very small laptops */
-@media (min-width: 768px) and (max-width: 900px) {
-  input, button, select, textarea {
-    font-size: 0.8rem !important;
-    padding: 0.4rem 0.6rem !important;
-  }
 }
