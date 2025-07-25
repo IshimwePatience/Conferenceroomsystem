@@ -457,7 +457,7 @@ const Login = ({ setIsLoggedIn, setUserRole }) => {
                 <div className="relative z-10 w-full flex flex-col">
                    {/* Logo */}
 <div className="flex items-center space-x-3 mb-6 md:mb-4 scaled:mb-6">
-    <div className="w-8 h-8 md:w-7 md:h-7 lg:w-10 lg:h-10 scaled:w-9 scaled:h-9 rounded-lg flex items-center justify-center">
+    <div className="w-10 h-10 md:w-10 md:h-10 lg:w-18 lg:h-18 scaled:w-15 scaled:h-15 rounded-lg flex items-center justify-center">
         <img src={rbc} alt="RBC Logo" className="w-full h-full object-contain" />
     </div>
     <span className="text-white text-fluid-xl font-semibold">ConferenceRoomBooking</span>
