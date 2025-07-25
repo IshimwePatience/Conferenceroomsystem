@@ -455,14 +455,13 @@ const Login = ({ setIsLoggedIn, setUserRole }) => {
             <div className="flex-1 flex flex-col justify-center items-start px-6 py-6 md:px-10 md:py-8 lg:px-16 lg:py-12 scaled:px-14 scaled:py-12 relative bg-cover bg-center" style={{ backgroundImage: `url(${meetingImg})` }}>
                 <div className="absolute inset-0 bg-black/50 z-0"></div>
                 <div className="relative z-10 w-full flex flex-col">
-                    {/* Logo */}
-                    <div className="flex items-center space-x-3 mb-6 md:mb-4 scaled:mb-6">
-                        <div className="w-8 h-8 md:w-7 md:h-7 lg:w-10 lg:h-10 scaled:w-9 scaled:h-9  rounded-lg flex items-center justify-center">
-                            <span className="text-white font-bold text-fluid-sm">src {rbc}</span>
-                           
-                        </div>
-                        <span className="text-white text-fluid-xl font-semibold">ConferenceRoomBooking</span>
-                    </div>
+                   {/* Logo */}
+<div className="flex items-center space-x-3 mb-6 md:mb-4 scaled:mb-6">
+    <div className="w-8 h-8 md:w-7 md:h-7 lg:w-10 lg:h-10 scaled:w-9 scaled:h-9 rounded-lg flex items-center justify-center">
+        <img src={rbc} alt="RBC Logo" className="w-full h-full object-contain" />
+    </div>
+    <span className="text-white text-fluid-xl font-semibold">ConferenceRoomBooking</span>
+</div>
                     
                     {/* Heading */}
                     <div className="max-w-lg">
