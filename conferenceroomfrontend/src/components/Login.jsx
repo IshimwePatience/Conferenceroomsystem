@@ -5,7 +5,7 @@ import { useGoogleLogin } from '@react-oauth/google';
 import { jwtDecode } from 'jwt-decode';
 import meetingImg from '../assets/images/meeting.jpg';
 import rbc from '../assets/images/rbc.png';
-import rbcheader from '../assets/images/rbc-logo-white.png'
+import rbcheader from '../assets/images/rbcphoto.png'
 
 const Login = ({ setIsLoggedIn, setUserRole }) => {
     const navigate = useNavigate();
