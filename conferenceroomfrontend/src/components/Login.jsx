@@ -453,7 +453,7 @@ const Login = ({ setIsLoggedIn, setUserRole }) => {
             </div>
 
             {/* Left Side Content */}
-            <div className="flex-1 flex flex-col justify-center items-start px-6 py-6 md:px-10 md:py-20 lg:px-16 lg:py-20 scaled:px-14 scaled:py-20 relative bg-cover bg-center" style={{ backgroundImage: `url(${meetingImg})` }}>
+            <div className="flex-1 md:flex-2 lg:flex-2 scaled:flex-2 flex flex-col justify-center items-start px-6 py-6 md:px-10 md:py-8 lg:px-16 lg:py-12 scaled:px-14 scaled:py-12 relative bg-cover bg-center" style={{ backgroundImage: `url(${meetingImg})` }}>
                 <div className="absolute inset-0 bg-black/50 z-0"></div>
                 <div className="relative z-10 w-full flex flex-col">
                    {/* Logo */}
@@ -478,7 +478,7 @@ const Login = ({ setIsLoggedIn, setUserRole }) => {
             </div>
 
             {/* Right Side Form */}
-            <div className="flex-1 flex items-start justify-center relative z-10 px-6 py-6 md:px-4 md:py-4 scaled:px-6 scaled:py-6 md:overflow-y-auto lg:overflow-y-auto">
+            <div className="flex-1 md:flex-1 lg:flex-1 scaled:flex-1 flex items-start justify-center relative z-10 px-6 py-6 md:px-4 md:py-4 scaled:px-6 scaled:py-6 md:overflow-y-auto lg:overflow-y-auto">
                 <div className="w-full max-w-md">
                     {/* RBC Header Logo - Only visible on md, lg, and scaled devices */}
                     <div className="hidden md:flex scaled:flex justify-center mb-8 lg:mb-10 scaled:mb-10">
