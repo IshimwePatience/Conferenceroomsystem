@@ -236,7 +236,7 @@ const Login = ({ setIsLoggedIn, setUserRole }) => {
                 type="password" 
                 value={password} 
                 onChange={(e) => setPassword(e.target.value)} 
-                className="youtube-input bg-white/10 backdrop-blur-sm text-white placeholder-white/70 border border-white/20 hover:shadow-lg focus:outline-none focus:border-cyan-400/50 focus:ring-1 focus:ring-cyan-400/20 transition-all" 
+                className="youtube-input bg-white/10 backdrop-blur-sm font-light text-white placeholder-white/70 border border-white/20 hover:shadow-lg focus:outline-none focus:border-cyan-400/50 focus:ring-1 focus:ring-cyan-400/20 transition-all" 
                 placeholder="Password"
                 required 
             />
@@ -249,12 +249,12 @@ const Login = ({ setIsLoggedIn, setUserRole }) => {
                         onChange={(e) => setRememberMe(e.target.checked)} 
                         className="youtube-checkbox mr-2 rounded" 
                     />
-                    <span>Remember Me</span>
+                    <span className='font-light'>Remember Me</span>
                 </label>
                 <button 
                     type="button" 
                     onClick={() => setCurrentView('FORGOT_PASSWORD')} 
-                    className="youtube-text-sm text-cyan-400 hover:text-cyan-300 transition-colors"
+                    className="youtube-text-sm  font-light text-cyan-400 hover:text-cyan-300 transition-colors"
                 >
                     Forgot Password?
                 </button>
