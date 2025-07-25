@@ -478,7 +478,7 @@ const Login = ({ setIsLoggedIn, setUserRole }) => {
             </div>
 
             {/* Right Side Form */}
-            <div className="flex-1 flex items-center justify-center relative z-10 px-6 py-6 md:px-4 md:py-4 scaled:px-6 scaled:py-6 md:overflow-y-auto lg:overflow-y-auto">
+            <div className="flex-1 flex items-center justify-center relative z-10 px-6 py-6 md:px-4 md:py-4 scaled:px-6 scaled:py-6 md:overflow-y-auto lg:overflow-y-auto scaled:overflow-y-auto">
                 <div className="w-full max-w-md">
                     {/* RBC Header Logo - Only visible on md and lg+ devices */}
                     <div className="hidden md:flex justify-center mb-8 lg:mb-10">
