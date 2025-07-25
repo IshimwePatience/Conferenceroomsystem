@@ -453,7 +453,7 @@ const Login = ({ setIsLoggedIn, setUserRole }) => {
             </div>
 
             {/* Left Side Content */}
-            <div className="flex-1 flex flex-col justify-center items-start px-6 py-6 md:px-10 md:py-8 lg:px-16 lg:py-12 scaled:px-14 scaled:py-12 relative bg-cover bg-center" style={{ backgroundImage: `url(${meetingImg})` }}>
+            <div className="flex-1 flex flex-col justify-center items-start px-6 py-6 md:px-10 md:py-20 lg:px-16 lg:py-20 scaled:px-14 scaled:py-20 relative bg-cover bg-center" style={{ backgroundImage: `url(${meetingImg})` }}>
                 <div className="absolute inset-0 bg-black/50 z-0"></div>
                 <div className="relative z-10 w-full flex flex-col">
                    {/* Logo */}
