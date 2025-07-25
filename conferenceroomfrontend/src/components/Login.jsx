@@ -489,7 +489,7 @@ const Login = ({ setIsLoggedIn, setUserRole }) => {
                         />
                     </div>
 
-                    <div className="text-center mb-6 md:mb-4 scaled:mb-6">
+                    <div className="text-center font-light mb-6 md:mb-4 scaled:mb-6">
                         <h2 className="text-fluid-xl font-light text-white mb-2">
                             {currentView === 'LOGIN' && 'Welcome Back!'}
                             {currentView === '2FA' && 'VERIFY CODE'}
@@ -497,7 +497,7 @@ const Login = ({ setIsLoggedIn, setUserRole }) => {
                             {currentView === 'RESET_CODE' && 'ENTER RESET CODE'}
                             {currentView === 'NEW_PASSWORD' && 'SET NEW PASSWORD'}
                         </h2>
-                        <p className="text-white/70 text-fluid-base">
+                        <p className="text-white/70 font-light text-fluid-base">
                             {currentView === 'LOGIN' && 'Sign in with email address'}
                             {currentView === '2FA' && 'Enter your verification code'}
                             {currentView === 'FORGOT_PASSWORD' && 'Enter your email for reset link'}
