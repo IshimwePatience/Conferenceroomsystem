@@ -433,10 +433,10 @@ const Login = ({ setIsLoggedIn, setUserRole }) => {
                 <div className="absolute -top-10 -left-10 w-60 h-60 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 xl:w-[28rem] xl:h-[28rem] 2xl:w-[32rem] 2xl:h-[32rem] bg-gradient-to-br from-cyan-400/30 to-blue-600/30 rounded-full blur-3xl"></div>
                 
                 {/* Medium Planet */}
-                <div className="absolute top-1/3 -right-16 w-48 h-48 sm:w-60 sm:h-60 md:w-72 md:h-72 lg:w-80 lg:h-80 xl:w-96 xl:h-96 2xl:w-[28rem] 2xl:h-[28rem] bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-full blur-2xl"></div>
+                <div className="absolute top-1/3 -right-16 w-48 h-48 sm:w-60 sm:h-60 md:w-72 md:h-72 lg:w-80 lg:h-80 xl:w-96 xl:h-96 2xl:w-[28rem] 2xl:h-[28rem]  rounded-full blur-2xl"></div>
                 
                 {/* Small Planet */}
-                <div className="absolute bottom-20 left-1/4 w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 xl:w-40 xl:h-40 2xl:w-48 2xl:h-48 bg-gradient-to-br from-orange-400/40 to-red-500/40 rounded-full blur-xl"></div>
+                <div className="absolute bottom-20 left-1/4 w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 xl:w-40 xl:h-40 2xl:w-48 2xl:h-48 rounded-full blur-xl"></div>
                 
                 {/* Stars */}
                 <div className="absolute top-1/4 left-1/3 w-1 h-1 md:w-1.5 md:h-1.5 lg:w-2 lg:h-2 xl:w-2.5 xl:h-2.5 2xl:w-3 2xl:h-3 bg-white rounded-full animate-pulse shadow-white shadow-sm"></div>
