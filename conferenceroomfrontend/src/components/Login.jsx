@@ -480,15 +480,6 @@ const Login = ({ setIsLoggedIn, setUserRole }) => {
             {/* Right Side Form */}
             <div className="flex-1 flex items-center justify-center relative z-10 px-6 py-6 md:px-4 md:py-4 scaled:px-6 scaled:py-6">
                 <div className="w-full max-w-md">
-                    {/* RBC Header Logo - Only visible on md and lg+ devices */}
-                    <div className="hidden md:flex justify-center mb-8 lg:mb-10">
-                        <img 
-                            src={rbcheader} 
-                            alt="RBC Logo" 
-                            className="h-12 md:h-14 lg:h-16 object-contain"
-                        />
-                    </div>
-
                     <div className="text-center mb-6 md:mb-4 scaled:mb-6">
                         <h2 className="text-fluid-2xl font-bold text-white mb-2">
                             {currentView === 'LOGIN' && 'Welcome Back!'}
