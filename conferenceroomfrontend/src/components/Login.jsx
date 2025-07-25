@@ -480,7 +480,7 @@ const Login = ({ setIsLoggedIn, setUserRole }) => {
                 <div className="w-full max-w-md">
                     <div className="text-center mb-6 md:mb-4 scaled:mb-6">
                         <h2 className="text-fluid-2xl font-bold text-white mb-2">
-                            {currentView === 'LOGIN' && 'SIGN IN'}
+                            {currentView === 'LOGIN' && 'Welcome Back!'}
                             {currentView === '2FA' && 'VERIFY CODE'}
                             {currentView === 'FORGOT_PASSWORD' && 'RESET PASSWORD'}
                             {currentView === 'RESET_CODE' && 'ENTER RESET CODE'}
