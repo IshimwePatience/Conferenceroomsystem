@@ -30,15 +30,14 @@ export default {
         'lg': '1024px',
         'xl': '1280px',
         '2xl': '1536px',
-        // CRITICAL: Simple fix for your 1920×1080 @ 150% scaling
+        // Perfect for your 1920×1080 @ 150% scaling
         'scaled': '1200px',
-        // Use standard breakpoints instead of custom ones
         '3xl': '1920px',
       },
       
-      // SIMPLE FONT SIZES - Not too aggressive
+      // YouTube-like font sizes - cleaner and more compact
       fontSize: {
-        // Keep standard sizes
+        // Standard sizes
         'xs': ['0.75rem', { lineHeight: '1rem' }],
         'sm': ['0.875rem', { lineHeight: '1.25rem' }],
         'base': ['1rem', { lineHeight: '1.5rem' }],
@@ -47,127 +46,234 @@ export default {
         '2xl': ['1.5rem', { lineHeight: '2rem' }],
         '3xl': ['1.875rem', { lineHeight: '2.25rem' }],
         
-        // CONTROLLED responsive sizes - not too big/small
-        'responsive-sm': ['0.9rem', { lineHeight: '1.3rem' }],
-        'responsive-base': ['1.05rem', { lineHeight: '1.6rem' }],
-        'responsive-lg': ['1.2rem', { lineHeight: '1.8rem' }],
-        'responsive-xl': ['1.4rem', { lineHeight: '2rem' }],
-        'responsive-2xl': ['1.7rem', { lineHeight: '2.3rem' }],
+        // YouTube-inspired fluid sizes
+        'fluid-xs': 'clamp(0.75rem, 1.5vw, 0.875rem)',
+        'fluid-sm': 'clamp(0.875rem, 2vw, 1rem)',
+        'fluid-base': 'clamp(1rem, 2.2vw, 1.125rem)',
+        'fluid-lg': 'clamp(1.125rem, 2.5vw, 1.25rem)',
+        'fluid-xl': 'clamp(1.25rem, 2.8vw, 1.375rem)',
+        'fluid-2xl': 'clamp(1.5rem, 3.2vw, 1.75rem)',
+        'fluid-3xl': 'clamp(1.875rem, 4vw, 2.25rem)',
       },
       
-      // CONTROLLED SPACING - Not too aggressive
+      // Compact spacing for better proportions
       spacing: {
         '18': '4.5rem',
         '88': '22rem',
-        // Simple responsive spacing
-        'r-1': '0.3rem',
-        'r-2': '0.6rem', 
-        'r-3': '0.9rem',
-        'r-4': '1.2rem',
-        'r-5': '1.5rem',
-        'r-6': '1.8rem',
-        'r-8': '2.4rem',
+        // Compact responsive spacing
+        'compact-1': '0.25rem',
+        'compact-2': '0.5rem', 
+        'compact-3': '0.75rem',
+        'compact-4': '1rem',
+        'compact-5': '1.25rem',
+        'compact-6': '1.5rem',
       },
       
       maxWidth: {
-        'form-sm': '22rem',
-        'form-md': '26rem', 
-        'form-lg': '30rem',
+        'form-xs': '18rem',
+        'form-sm': '20rem',
+        'form-md': '24rem', 
+        'form-lg': '28rem',
+      },
+      
+      // YouTube-like heights
+      height: {
+        'input-sm': '2.75rem',   // ~44px - compact
+        'input-md': '3rem',      // ~48px - standard  
+        'input-lg': '3.25rem',   // ~52px - larger screens
+        'btn-sm': '2.5rem',      // ~40px - compact buttons
+        'btn-md': '2.75rem',     // ~44px - standard buttons
+        'btn-lg': '3rem',        // ~48px - larger buttons
       },
     },
   },
   plugins: [
     function({ addComponents, addUtilities, theme }) {
       
-      // SIMPLE COMPONENTS - Controlled sizing
+      // YouTube-inspired form components
       addComponents({
-        // Simple responsive form
-        '.simple-form': {
+        // Main form container - responsive and compact
+        '.youtube-form': {
           width: '100%',
           maxWidth: theme('maxWidth.form-sm'),
           margin: '0 auto',
-          padding: theme('spacing.6'),
+          padding: theme('spacing.4'),
           
-          // Tablet and small laptop (md breakpoint = 768px+) - EVEN MORE COMPACT
-          '@media (min-width: 768px)': {
-            maxWidth: '16rem', // Even smaller container
-            padding: theme('spacing.2'), // Even tighter padding
+          // Mobile (default) - compact
+          '@media (max-width: 640px)': {
+            maxWidth: theme('maxWidth.form-xs'),
+            padding: theme('spacing.3'),
           },
           
-          // Desktop and your 1920×1080 @ 150% display (lg breakpoint = 1024px+)
-          '@media (min-width: 1024px)': {
+          // Tablet (md: 768px+) - very compact for your needs
+          '@media (min-width: 768px)': {
+            maxWidth: '18rem', // Smaller form
+            padding: theme('spacing.2'),
+          },
+          
+          // Your scaled display (1200px+) - optimized for 1920×1080 @ 150%
+          '@media (min-width: 1200px)': {
             maxWidth: theme('maxWidth.form-md'),
             padding: theme('spacing.6'),
           },
           
-          // Your scaled display (1200px+)
-          '@media (min-width: 1200px)': {
-            maxWidth: theme('maxWidth.form-md'),
+          // Large desktop
+          '@media (min-width: 1920px)': {
+            maxWidth: theme('maxWidth.form-lg'),
             padding: theme('spacing.8'),
+          },
+        },
+        
+        // YouTube-style input - perfect heights
+        '.youtube-input': {
+          width: '100%',
+          height: theme('height.input-sm'), // Compact by default
+          padding: '0 clamp(0.75rem, 2vw, 1rem)',
+          fontSize: theme('fontSize.fluid-sm'),
+          lineHeight: '1.5',
+          borderRadius: 'clamp(0.375rem, 0.5vw, 0.5rem)',
+          transition: 'all 0.2s ease',
+          
+          // Tablet - even more compact
+          '@media (min-width: 768px)': {
+            height: '2.25rem', // Very compact for tablets
+            fontSize: theme('fontSize.sm[0]'),
+          },
+          
+          // Your scaled display
+          '@media (min-width: 1200px)': {
+            height: theme('height.input-md'),
+            fontSize: theme('fontSize.fluid-base'),
           },
           
           // Large screens
           '@media (min-width: 1920px)': {
-            maxWidth: theme('maxWidth.form-lg'),
+            height: theme('height.input-lg'),
           },
         },
         
-        // FLUID responsive input - scales smoothly across all screen sizes
-        '.simple-input': {
+        // YouTube-style button - optimized heights
+        '.youtube-button': {
           width: '100%',
-          padding: 'clamp(0.5rem, 2vw, 1rem) clamp(0.75rem, 3vw, 1.25rem)', // Fluid padding
-          fontSize: 'clamp(0.875rem, 2.5vw, 1.125rem)', // Fluid text size
-          lineHeight: '1.5',
-          borderRadius: 'clamp(0.375rem, 1vw, 0.75rem)', // Fluid border radius
-          transition: 'all 0.3s ease',
-        },
-        
-        // FLUID responsive button - scales smoothly across all screen sizes
-        '.simple-button': {
-          width: '100%',
-          padding: 'clamp(0.5rem, 2vw, 1rem) clamp(0.75rem, 3vw, 1.25rem)', // Fluid padding
-          fontSize: 'clamp(0.875rem, 2.5vw, 1.125rem)', // Fluid text size
+          height: theme('height.btn-sm'), // Compact by default
+          padding: '0 clamp(0.75rem, 2vw, 1rem)',
+          fontSize: theme('fontSize.fluid-sm'),
           fontWeight: '500',
-          lineHeight: '1.5',
-          borderRadius: 'clamp(0.375rem, 1vw, 0.75rem)', // Fluid border radius
+          lineHeight: '1',
+          borderRadius: 'clamp(0.375rem, 0.5vw, 0.5rem)',
           border: 'none',
           cursor: 'pointer',
-          transition: 'all 0.3s ease',
+          transition: 'all 0.2s ease',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          
+          // Tablet - compact
+          '@media (min-width: 768px)': {
+            height: '2rem', // Very compact buttons for tablets
+            fontSize: theme('fontSize.sm[0]'),
+          },
+          
+          // Your scaled display
+          '@media (min-width: 1200px)': {
+            height: theme('height.btn-md'),
+            fontSize: theme('fontSize.fluid-base'),
+          },
+          
+          // Large screens
+          '@media (min-width: 1920px)': {
+            height: theme('height.btn-lg'),
+          },
           
           '&:hover': {
             transform: 'translateY(-1px)',
+            filter: 'brightness(1.05)',
           },
           
           '&:active': {
             transform: 'translateY(0)',
           },
         },
-      });
-
-      // SIMPLE UTILITIES
-      addUtilities({
-        '.text-responsive-sm': { 
-          fontSize: theme('fontSize.responsive-sm[0]'),
-          lineHeight: theme('fontSize.responsive-sm[1]'),
-        },
-        '.text-responsive-base': { 
-          fontSize: theme('fontSize.responsive-base[0]'),
-          lineHeight: theme('fontSize.responsive-base[1]'),
-        },
-        '.text-responsive-lg': { 
-          fontSize: theme('fontSize.responsive-lg[0]'),
-          lineHeight: theme('fontSize.responsive-lg[1]'),
-        },
-        '.text-responsive-xl': { 
-          fontSize: theme('fontSize.responsive-xl[0]'),
-          lineHeight: theme('fontSize.responsive-xl[1]'),
+        
+        // Compact checkbox and small elements
+        '.youtube-checkbox': {
+          width: 'clamp(0.875rem, 1.5vw, 1rem)',
+          height: 'clamp(0.875rem, 1.5vw, 1rem)',
+          
+          '@media (min-width: 768px)': {
+            width: '0.75rem',
+            height: '0.75rem',
+          },
+          
+          '@media (min-width: 1200px)': {
+            width: '1rem',
+            height: '1rem',
+          },
         },
         
-        '.space-simple-y > * + *': {
-          marginTop: theme('spacing.4'),
+        // Compact text elements
+        '.youtube-text-sm': {
+          fontSize: theme('fontSize.fluid-xs'),
+          lineHeight: '1.4',
+          
+          '@media (min-width: 768px)': {
+            fontSize: theme('fontSize.xs[0]'),
+          },
+          
+          '@media (min-width: 1200px)': {
+            fontSize: theme('fontSize.fluid-sm'),
+          },
         },
-        '.gap-simple': {
-          gap: theme('spacing.4'),
+      });
+
+      // YouTube-style utilities
+      addUtilities({
+        // Fluid text utilities
+        '.text-fluid-xs': { fontSize: theme('fontSize.fluid-xs') },
+        '.text-fluid-sm': { fontSize: theme('fontSize.fluid-sm') },
+        '.text-fluid-base': { fontSize: theme('fontSize.fluid-base') },
+        '.text-fluid-lg': { fontSize: theme('fontSize.fluid-lg') },
+        '.text-fluid-xl': { fontSize: theme('fontSize.fluid-xl') },
+        '.text-fluid-2xl': { fontSize: theme('fontSize.fluid-2xl') },
+        '.text-fluid-3xl': { fontSize: theme('fontSize.fluid-3xl') },
+        
+        // Compact spacing
+        '.space-youtube-y > * + *': {
+          marginTop: 'clamp(0.75rem, 2vw, 1rem)',
+          
+          '@media (min-width: 768px)': {
+            marginTop: '0.5rem', // Very tight spacing on tablets
+          },
+          
+          '@media (min-width: 1200px)': {
+            marginTop: theme('spacing.4'),
+          },
+        },
+        
+        // YouTube-like gap
+        '.gap-youtube': {
+          gap: 'clamp(0.75rem, 2vw, 1rem)',
+          
+          '@media (min-width: 768px)': {
+            gap: '0.5rem',
+          },
+          
+          '@media (min-width: 1200px)': {
+            gap: theme('spacing.4'),
+          },
+        },
+        
+        // Compact margins for your scaled display
+        '.mb-youtube': {
+          marginBottom: 'clamp(0.75rem, 2vw, 1rem)',
+          
+          '@media (min-width: 768px)': {
+            marginBottom: '0.5rem',
+          },
+          
+          '@media (min-width: 1200px)': {
+            marginBottom: theme('spacing.4'),
+          },
         },
       });
     }
