@@ -227,7 +227,7 @@ const Login = ({ setIsLoggedIn, setUserRole }) => {
                 type="email" 
                 value={email} 
                 onChange={(e) => setEmail(e.target.value)} 
-                className="youtube-input bg-white/10 backdrop-blur-sm text-white placeholder-white/70 border border-white/20 hover:shadow-lg focus:outline-none focus:border-cyan-400/50 focus:ring-1 focus:ring-cyan-400/20 transition-all" 
+                className="youtube-input bg-white/10 backdrop-blur-sm text-white font-light placeholder-white/70 border border-white/20 hover:shadow-lg focus:outline-none focus:border-cyan-400/50 focus:ring-1 focus:ring-cyan-400/20 transition-all" 
                 placeholder="Enter email address"
                 required 
             />
