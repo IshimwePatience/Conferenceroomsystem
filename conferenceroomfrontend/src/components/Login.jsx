@@ -336,7 +336,7 @@ const Login = ({ setIsLoggedIn, setUserRole }) => {
                 type="email" 
                 value={email} 
                 onChange={(e) => setEmail(e.target.value)} 
-                className="youtube-input bg-white/10 backdrop-blur-sm text-white placeholder-white/70 border border-white/20 hover:shadow-lg focus:outline-none focus:border-cyan-400/50 focus:ring-1 focus:ring-cyan-400/20 transition-all" 
+                className="youtube-input bg-white/10 backdrop-blur-sm font-light text-white placeholder-white/70 border border-white/20 hover:shadow-lg focus:outline-none focus:border-cyan-400/50 focus:ring-1 focus:ring-cyan-400/20 transition-all" 
                 placeholder="Enter your email to get a reset code"
                 required 
             />
@@ -349,7 +349,7 @@ const Login = ({ setIsLoggedIn, setUserRole }) => {
             <button 
                 type="button" 
                 onClick={() => setCurrentView('LOGIN')} 
-                className="text-cyan-400 hover:text-cyan-300 transition-colors text-center youtube-text-sm"
+                className="text-cyan-400 hover:text-cyan-300 font-light transition-colors text-center youtube-text-sm"
             >
                 Back to Login
             </button>
