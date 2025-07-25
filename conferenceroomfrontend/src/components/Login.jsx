@@ -4,6 +4,7 @@ import api from '../utils/api';
 import { useGoogleLogin } from '@react-oauth/google';
 import { jwtDecode } from 'jwt-decode';
 import meetingImg from '../assets/images/meeting.jpg';
+import rbc from '../assets/images/rbc-removebg-preview.png';
 
 const Login = ({ setIsLoggedIn, setUserRole }) => {
     const navigate = useNavigate();
@@ -456,8 +457,9 @@ const Login = ({ setIsLoggedIn, setUserRole }) => {
                 <div className="relative z-10 w-full flex flex-col">
                     {/* Logo */}
                     <div className="flex items-center space-x-3 mb-6 md:mb-4 scaled:mb-6">
-                        <div className="w-8 h-8 md:w-7 md:h-7 lg:w-10 lg:h-10 scaled:w-9 scaled:h-9 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-lg flex items-center justify-center">
-                            <span className="text-white font-bold text-fluid-sm">C</span>
+                        <div className="w-8 h-8 md:w-7 md:h-7 lg:w-10 lg:h-10 scaled:w-9 scaled:h-9  rounded-lg flex items-center justify-center">
+                            <span className="text-white font-bold text-fluid-sm">src {rbc}</span>
+                           
                         </div>
                         <span className="text-white text-fluid-xl font-semibold">ConferenceRoomBooking</span>
                     </div>
