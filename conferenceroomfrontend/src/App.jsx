@@ -180,7 +180,7 @@ function AppContent() {
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <Router>
+      <Router basename='/conferenceroomsystem'>
         <AppContent />
       </Router>
     </QueryClientProvider>
