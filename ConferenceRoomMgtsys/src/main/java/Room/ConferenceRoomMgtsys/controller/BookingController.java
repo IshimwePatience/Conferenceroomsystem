@@ -17,7 +17,7 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/booking")
-@CrossOrigin(origins = { "http://localhost:5173", "http://197.243.104.5/conferenceroomsystem","https://conferenceroomsystem.vercel.app" })
+@CrossOrigin(origins = { "http://localhost:5173",  "http://10.8.150.139:8090","https://conferenceroomsystem.vercel.app" })
 public class BookingController {
 
     @Autowired

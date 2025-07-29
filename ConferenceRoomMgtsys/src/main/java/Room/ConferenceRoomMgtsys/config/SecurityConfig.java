@@ -144,8 +144,7 @@ public class SecurityConfig {
                     "http://localhost:3000",
                     "http://localhost:8080",
                     "https://conferenceroomsystem.vercel.app",
-                    "http://197.243.104.5/conferenceroomsystem",
-                    "http://197.243.104.5");
+                    "http://10.8.150.139:8090");
         }
         configuration.setAllowedOrigins(allowedOrigins);
 
