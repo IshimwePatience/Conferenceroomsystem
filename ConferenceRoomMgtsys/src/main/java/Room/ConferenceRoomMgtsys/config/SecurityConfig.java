@@ -63,7 +63,7 @@ public class SecurityConfig {
                         .requestMatchers("/public/**").permitAll()
 
                         // Allow public access to organization list for registration
-                        .requestMatchers("/organization").permitAll()
+                        .requestMatchers("/organization", "/organization/").permitAll()
 
                         // API Documentation
                         .requestMatchers("/swagger-ui/**", "/v3/api-docs/**", "/swagger-resources/**").permitAll()

@@ -6,19 +6,9 @@ spring.datasource.username=rbcconferenceroom_user
 spring.datasource.password=Patience123@
 spring.datasource.driver-class-name=org.postgresql.Driver
 
-spring.jpa.hibernate.ddl-auto=update
-spring.jpa.show-sql=true
+spring.jpa.hibernate.ddl-auto=create-drop
+spring.jpa.show-sql=false
 spring.jpa.database-platform=org.hibernate.dialect.PostgreSQLDialect
-
-# Add these debug lines
-logging.level.org.hibernate.SQL=DEBUG
-logging.level.org.hibernate.type=TRACE
-logging.level.org.hibernate.tool.hbm2ddl=DEBUG
-logging.level.org.springframework.orm.jpa=DEBUG
-
-# Force Hibernate to show DDL
-spring.jpa.properties.hibernate.show_sql=true
-spring.jpa.properties.hibernate.format_sql=true
 
 # Email Configuration
 spring.mail.host=smtp.gmail.com
@@ -64,7 +54,8 @@ file.upload-dir=/var/www/conferenceroomapp/Conferenceroomsystem/uploads
 # Server Configuration
 server.port=8082
 server.servlet.context-path=/conferenceroomsystem
-
+<<<<<<< HEAD
+=======
 
 # Security Configuration
 security.require-ssl=false
@@ -73,5 +64,5 @@ server.forward-headers-strategy=native
 # Logging Configuration (optional but helpful for debugging)
 logging.level.org.springframework.web=DEBUG
 logging.level.org.springframework.security=DEBUG
+logging.level.com.yourpackage=DEBUG
 logging.level.com.conferenceroomsystem=DEBUG
-
